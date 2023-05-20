@@ -1,3 +1,4 @@
+import 'package:curved_navigation_bar/curved_navigation_bar.dart';
 import 'package:flutter/material.dart';
 import 'package:scroll_snap_list/scroll_snap_list.dart';
 
@@ -12,12 +13,12 @@ class Home_page extends StatefulWidget {
 }
 
 class _Home_pageState extends State<Home_page> {
-
+  int indexpage= 0;
  List<Product> productList =[
-    Product('assets/images/stakan1.jpg', "Kapushino", 100, 20),
-    Product('assets/image/stakan2.jpg', "Nigo", 200, 30),
-    Product('assets/image/stakan3.jpg', "GelMunna", 300, 40),
-    Product('assets/image/stakan4.jpg', "Xiar", 400, 50),
+    Product('images/stakan1.jpg', "Kapushino", 100, 20),
+    Product('images/stakan2.jpg', "Nigo", 200, 30),
+    Product('images/stakan3.jpg', "GelMunna", 300, 40),
+    Product('images/stakan4.jpg', "Xiar", 400, 50),
   ];
   Widget build(BuildContext context) {
     return Scaffold(
@@ -40,7 +41,29 @@ class _Home_pageState extends State<Home_page> {
             onItemFocus: (index) {},
             dynamicItemSize: true,
           ),
-        ));
+          
+        ),
+        bottomNavigationBar: CurvedNavigationBar(
+          backgroundColor: Colors.grey,
+          color: Colors.grey.shade200,
+          animationDuration: Duration(milliseconds: 300),
+          items: [
+            Icon(
+              Icons.coffee,
+              color: Colors.black
+
+            ),
+            Icon(
+              Icons.donut_small_sharp,
+            ),
+            Icon(
+              Icons.coffee_maker,
+              color: Colors.black,
+            ),
+          ],
+        ),
+        
+        );
   }
 
   Widget _buildListItem(BuildContext context, int index) {
