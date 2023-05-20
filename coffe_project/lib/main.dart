@@ -36,9 +36,9 @@ class MyApp extends StatelessWidget {
       routes: {
         '/': (context) => const FirebaseStream(),
         '/home':(context) => const Home_page(),
-        '/login': (context) => const Sigin(),
-        '/signup': (context) => const SignUpScreen(),
-        '/loginin':(context) => const Loginin(),
+        '/login': (context) =>  signin_menu(),
+        '/signup': (context) => const signup_menu(),
+        '/loginin':(context) => const Loginin()
         
       },
       initialRoute: '/',

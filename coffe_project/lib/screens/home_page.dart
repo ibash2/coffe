@@ -1,3 +1,6 @@
+import 'package:coffe_project/screens/loginin.dart';
+import 'package:coffe_project/screens/sigin_page.dart';
+import 'package:coffe_project/screens/signup_page.dart';
 import 'package:coffe_project/screens/product_page.dart';
 import 'package:curved_navigation_bar/curved_navigation_bar.dart';
 import 'package:flutter/material.dart';
@@ -22,13 +25,30 @@ class _Home_pageState extends State<Home_page> {
     Product('images/stakan4.jpg', "Xiar", 400, 50),
   ];
   Widget build(BuildContext context) {
+    final mediaQuery = MediaQuery.of(context).size;
     return Scaffold(
       appBar: AppBar(
         leading: MaterialButton(
             splashColor: Colors.transparent,
             highlightColor: Colors.transparent,
             onPressed: () {
-              Navigator.pushNamed(context, '/loginin');
+              showModalBottomSheet(
+                      backgroundColor: Color(0xffffffff),
+                      isScrollControlled: true,
+                      shape: const RoundedRectangleBorder(
+                          borderRadius: BorderRadius.only(
+                        topRight: Radius.circular(16),
+                        topLeft: Radius.circular(16),
+                      )),
+                      context: context,
+                      builder: (BuildContext context) {
+                        return FractionallySizedBox(
+                          heightFactor: 497/mediaQuery.height,
+                          child: signin_menu(),
+                        );
+                      },
+                    );
+              // Navigator.pushNamed(context, '/loginin');
             },
             child: Icon(
               Icons.people_outline,
