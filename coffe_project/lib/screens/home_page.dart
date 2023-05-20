@@ -82,38 +82,43 @@ class _Home_pageState extends State<Home_page> {
         elevation: 12,
         child: ClipRRect(
           borderRadius: const BorderRadius.all(Radius.circular(10)),
-          child: Column(
-            children: [
-              Image.asset(
-                product.imagePate,
-                fit: BoxFit.cover,
-                width: 150,
-                height: 180,
-              ),
-              const SizedBox(
-                height: 10,
-              ),
-              Text(
-                product.title,
-                style: const TextStyle(fontSize: 15),
-              ),
-              Padding(
-                padding: const EdgeInsets.symmetric(horizontal: 8),
-                child: Row(
-                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                  children: [
-                    Text(
-                      '\$${product.cost}',
-                      style: const TextStyle(fontWeight: FontWeight.bold),
-                    ),
-                    Text(
-                      '${product.reviewCount} Reviews',
-                      style: const TextStyle(color: Colors.blue),
-                    )
-                  ],
+          child: MaterialButton(
+            splashColor: Colors.transparent,
+            highlightColor: Colors.transparent,
+            onPressed: () {},
+            child: Column(
+              children: [
+                Image.asset(
+                  product.imagePate,
+                  fit: BoxFit.cover,
+                  width: 150,
+                  height: 180,
                 ),
-              )
-            ],
+                const SizedBox(
+                  height: 10,
+                ),
+                Text(
+                  product.title,
+                  style: const TextStyle(fontSize: 15),
+                ),
+                Padding(
+                  padding: const EdgeInsets.symmetric(horizontal: 8),
+                  child: Row(
+                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                    children: [
+                      Text(
+                        '\$${product.cost}',
+                        style: const TextStyle(fontWeight: FontWeight.bold),
+                      ),
+                      Text(
+                        '${product.reviewCount} Reviews',
+                        style: const TextStyle(color: Colors.blue),
+                      )
+                    ],
+                  ),
+                )
+              ],
+            ),
           ),
         ),
       ),
