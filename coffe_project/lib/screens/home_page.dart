@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:scroll_snap_list/scroll_snap_list.dart';
 
 
 // ignore: camel_case_types
@@ -8,9 +9,9 @@ class Home_page extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      body: Center(
-        child: Text('sdfkd'),
-      )
+      appBar: AppBar(
+        l
+      ),
     );
   }
 }
