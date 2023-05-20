@@ -23,10 +23,14 @@ class _Home_pageState extends State<Home_page> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        leading: Icon(
-          Icons.people_outline,
-          color: Colors.black,
-        ),
+        leading: MaterialButton(
+            splashColor: Colors.transparent,
+            highlightColor: Colors.transparent,
+            onPressed: () {},
+            child: Icon(
+              Icons.people_outline,
+              color: Colors.black,
+            )),
         centerTitle: true,
         title: const Text(
           "Name",
