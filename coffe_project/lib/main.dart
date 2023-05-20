@@ -15,9 +15,7 @@ Future<void> main() async {
   await Firebase.initializeApp(
     options: DefaultFirebaseOptions.currentPlatform,
   );
-  runApp(MaterialApp(
-    home: test(),
-  ));
+  runApp(MyApp());
 }
 
 
