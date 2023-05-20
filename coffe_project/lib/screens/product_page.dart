@@ -42,10 +42,17 @@ class Product_information extends StatelessWidget {
           Center(
            
           ),
+          Container(
+            child: Image.asset(product.imagePate),
+          ),
           Center(
-            child: Text(product.title,style: TextStyle(color: Colors.black), )
+            child: Text(product.title,style: SafeGoogleFont('Sarala',color: Colors.white,fontSize: 24,fontWeight: FontWeight.w700), )
             
           ),
+          
+          Center(
+            child: Text("${product.cost}\р",style: SafeGoogleFont('Sarala',color: Color.fromRGBO(64, 64, 64, 1),fontSize: 20,fontWeight: FontWeight.w700), )
+          )
         ],
       ),
     ),);
