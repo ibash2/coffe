@@ -1,5 +1,6 @@
 import 'package:coffe_project/screens/home_page.dart';
 import 'package:coffe_project/screens/loginin.dart';
+import 'package:coffe_project/screens/product_page.dart';
 import 'package:coffe_project/screens/sigin_page.dart';
 import 'package:coffe_project/screens/signup_page.dart';
 import 'package:coffe_project/screens/verify_email_screen.dart';
@@ -37,7 +38,7 @@ class MyApp extends StatelessWidget {
         '/home':(context) => const Home_page(),
         '/login': (context) => const Sigin(),
         '/signup': (context) => const SignUpScreen(),
-        '/loginin':(context) => const Loginin()
+        '/loginin':(context) => const Loginin(),
         
       },
       initialRoute: '/',

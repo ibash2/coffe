@@ -1,21 +1,31 @@
+import 'package:coffe_project/Widget/product.dart';
 import 'package:flutter/material.dart';
 
 import '../Widget/product.dart';
+import '../Widget/product.dart';
+import '../Widget/product.dart';
 
 
-class Product_information extends StatefulWidget {
-  const Product_information({super.key});
+class Product_information extends StatelessWidget {
 
-  @override
-  State<Product_information> createState() => _Product_informationState();
-}
+  final Product product;
 
-class _Product_informationState extends State<Product_information> {
+  Product_information(this.product);
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        centerTitle: Text( '\$${Product.cost}'),
+        centerTitle: true,
+        title: Text("ESPRESSWAY",style: TextStyle(fontSize: 30),),
+      ),
+      body: Column(
+        children: [
+          Center(
+            child: Text(product.title,style: TextStyle(color: Colors.black), )
+            
+          ),
+        ],
       ),
     );
   }
