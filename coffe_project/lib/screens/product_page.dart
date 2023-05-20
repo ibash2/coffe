@@ -29,11 +29,19 @@ class Product_information extends StatelessWidget {
         leading: MaterialButton(onPressed: () {
           
         },
-        child:  Image.asset('images/profil.png'),
+        child:  Image.asset('images/profil.png', height: 18),
         ),
+        actions: [MaterialButton(onPressed: () {
+          
+        },
+        child:  Image.asset('images/profil.png', height: 18),
+        ),],
       ),
       body: Column(
         children: [
+          Center(
+           
+          ),
           Center(
             child: Text(product.title,style: TextStyle(color: Colors.black), )
             
