@@ -1,4 +1,6 @@
 import 'package:coffe_project/screens/home_page.dart';
+import 'package:coffe_project/screens/sigin_page.dart';
+import 'package:coffe_project/screens/signup_page.dart';
 import 'package:coffe_project/services/firebase_streem.dart';
 import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
@@ -30,7 +32,9 @@ class MyApp extends StatelessWidget {
       ),
       routes: {
         '/': (context) => const FirebaseStream(),
-        '/home':(context) => const Home_page()
+        '/home':(context) => const Home_page(),
+        '/login': (context) => const Sigin(),
+        '/signup': (context) => const SignUpScreen(),
         
       },
       initialRoute: '/',

@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 
-
 // ignore: camel_case_types
 class Home_page extends StatelessWidget {
   const Home_page({super.key});
@@ -9,8 +8,12 @@ class Home_page extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       body: Center(
-        child: Text('sdfkd'),
-      )
+          child: MaterialButton(
+        onPressed: () {
+          Navigator.pushNamed(context, '/signup');
+        },
+        child: Text("кнопка"),
+      )),
     );
   }
 }
