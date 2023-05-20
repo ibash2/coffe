@@ -81,7 +81,7 @@ class _Home_pageState extends State<Home_page> {
       child: Card(
         elevation: 12,
         child: ClipRRect( 
-          
+
           borderRadius: const BorderRadius.all(Radius.circular(10)),
           child: MaterialButton(
             splashColor: Colors.transparent,
