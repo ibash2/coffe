@@ -16,16 +16,16 @@ class Home_page extends StatelessWidget {
       ),
       body: Column(
         children: [
-          SizedBox(
-            height: 250,
-            child: ScrollSnapList(
-            itemBuilder: itemBuilder,
-            itemCount: itemCount,
-            itemSize: itemSize,
-            onItemFocus: onItemFocus,
+          // SizedBox(
+          //   height: 250,
+          //   child: ScrollSnapList(
+          //   // itemBuilder: itemBuilder,
+          //   // itemCount: itemCount,
+          //   // itemSize: itemSize,
+          //   // onItemFocus: onItemFocus,
             
-          ),
-          ),
+          // ),
+          // ),
 
           MaterialButton(
             onPressed: () {
