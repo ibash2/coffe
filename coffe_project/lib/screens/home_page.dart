@@ -20,10 +20,9 @@ class Home_page extends StatefulWidget {
 class _Home_pageState extends State<Home_page> {
   int indexpage = 0;
   List<Product> productList = [
-    Product('images/stakan1.jpg', "Kapushino", 100, 20),
-    Product('images/stakan2.jpg', "Nigo", 200, 30),
-    Product('images/stakan3.jpg', "GelMunna", 300, 40),
-    Product('images/stakan4.jpg', "Xiar", 400, 50),
+    Product('images/coffee_01.png', "Kapushino", 100, 20),
+    Product('images/coffee_02.png', "Nigo", 200, 30),
+    Product('images/coffee_03.png', "GelMunna", 300, 40),
   ];
   Widget build(BuildContext context) {
     final mediaQuery = MediaQuery.of(context).size;
@@ -103,12 +102,15 @@ class _Home_pageState extends State<Home_page> {
       width: 175,
       height: 300,
       child: Card(
-        elevation: 12,
+        elevation: 0,
+        color: Colors.transparent,
         child: ClipRRect( 
 
           borderRadius: const BorderRadius.all(Radius.circular(10)),
           child: MaterialButton(
+            elevation: 0,
             splashColor: Colors.transparent,
+            color: Colors.transparent,
             highlightColor: Colors.transparent,
             onPressed: () {
               Navigator.push(context,MaterialPageRoute(builder: (context)=> Product_information(product)));
