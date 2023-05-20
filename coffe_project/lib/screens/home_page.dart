@@ -26,7 +26,12 @@ class _Home_pageState extends State<Home_page> {
   ];
   Widget build(BuildContext context) {
     final mediaQuery = MediaQuery.of(context).size;
-    return Scaffold(
+    return Container(
+      decoration:BoxDecoration( 
+        image: DecorationImage(image: AssetImage('images/register.png')),
+        ),
+        child: Scaffold(
+          backgroundColor: Colors.transparent,
       appBar: AppBar(
         leading: MaterialButton(
             splashColor: Colors.transparent,
@@ -93,7 +98,7 @@ class _Home_pageState extends State<Home_page> {
           ),
         ],
       ),
-    );
+    ));
   }
 
   Widget _buildListItem(BuildContext context, int index) {
