@@ -34,7 +34,7 @@ class _Home_pageState extends State<Home_page>  with TickerProviderStateMixin {
     final mediaQuery = MediaQuery.of(context).size;
     return Container(
       decoration:BoxDecoration( 
-        image: DecorationImage(image: AssetImage('images/register.png')),
+        image: DecorationImage(fit: BoxFit.fill,image: AssetImage('images/register.png')),
         ),
         child: Scaffold(
           backgroundColor: Colors.transparent,
@@ -177,7 +177,7 @@ class _Home_pageState extends State<Home_page>  with TickerProviderStateMixin {
           child: MaterialButton(
             elevation: 0,
             splashColor: Colors.transparent,
-            color: Colors.transparent,
+            
             highlightColor: Colors.transparent,
             onPressed: () {
               Navigator.push(context,MaterialPageRoute(builder: (context)=> Product_information(product)));
