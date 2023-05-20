@@ -81,7 +81,10 @@ class _VerifyEmailScreenState extends State<VerifyEmailScreen> {
           appBar: AppBar(
             toolbarHeight: 69,
             leading: MaterialButton(
-              onPressed: () {},
+              onPressed: () async{
+                      timer?.cancel();
+                      await FirebaseAuth.instance.currentUser!.delete();
+                      },
               child: Icon(
                 Icons.arrow_back,
                 color: Colors.black,
@@ -96,52 +99,40 @@ class _VerifyEmailScreenState extends State<VerifyEmailScreen> {
               'Регистрация',
               style: SafeGoogleFont('SF Pro Display',
                   color: Colors.black,
-                  fontSize: 16,
+                  fontSize: 19,
                   fontWeight: FontWeight.w600),
             ),
           ),
-          body: SafeArea(
-            child: Padding(
-              padding: const EdgeInsets.all(20),
-              child: Column(
-                mainAxisAlignment: MainAxisAlignment.center,
-                children: [
-                  Center(
-                    child: Text(
-                      """       Письмо с подтверждением было
+          body: Padding(
+            padding: const EdgeInsets.only(left:20,right: 20),
+            child: Column(
+
+              children: [
+                SizedBox(height: 200,),
+                Center(
+                  child: Text(
+                    """       Письмо с подтверждением было
 отправлено на вашу электронную почту.""",
-                      style: SafeGoogleFont(
-                        'SF Pro Display',
-                        fontSize: 16,
-                        fontWeight: FontWeight.w400
-                      ),
+                    style: SafeGoogleFont(
+                      'SF Pro Display',
+                      fontSize: 17,
+                      fontWeight: FontWeight.w400
                     ),
                   ),
-                  const SizedBox(height: 61),
-                  MaterialButton(
-                    shape: const RoundedRectangleBorder(borderRadius: BorderRadius.all(Radius.circular(14))),
-                    minWidth: 339,
-                    height: 57,
-                    color: Color.fromRGBO(167, 184, 159, 1),
-                    onPressed: canResendEmail ? sendVerificationEmail : null,
-                    child: Text('Отправить повторно',  style: SafeGoogleFont('SF Pro Display',fontSize: 16,fontWeight: FontWeight.w500,color: Colors.white),),
-                  
-                    ),
-                  const SizedBox(height: 20),
-                  TextButton(
-                    onPressed: () async {
-                      timer?.cancel();
-                      await FirebaseAuth.instance.currentUser!.delete();
-                    },
-                    child: const Text(
-                      'Отменить',
-                      style: TextStyle(
-                        color: Colors.blue,
-                      ),
-                    ),
-                  )
-                ],
-              ),
+                ),
+                const SizedBox(height: 61),
+                MaterialButton(
+                  shape: const RoundedRectangleBorder(borderRadius: BorderRadius.all(Radius.circular(14))),
+                  minWidth: 339,
+                  height: 57,
+                  color: Color.fromRGBO(167, 184, 159, 1),
+                  onPressed: canResendEmail ? sendVerificationEmail : null,
+                  child: Text('Отправить повторно',  style: SafeGoogleFont('SF Pro Display',fontSize: 18,fontWeight: FontWeight.w500,color: Colors.white),),
+                
+                  ),
+                
+               
+              ],
             ),
           ),
         );
