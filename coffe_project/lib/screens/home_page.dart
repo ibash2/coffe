@@ -11,8 +11,8 @@ import 'home_reg_widget.dart';
 
 // ignore: camel_case_types
 class Home_page extends StatefulWidget {
-  
   const Home_page({super.key});
+
 
   @override
   State<Home_page> createState() => _Home_pageState();
