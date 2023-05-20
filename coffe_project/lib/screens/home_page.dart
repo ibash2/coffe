@@ -26,7 +26,9 @@ class _Home_pageState extends State<Home_page> {
         leading: MaterialButton(
             splashColor: Colors.transparent,
             highlightColor: Colors.transparent,
-            onPressed: () {},
+            onPressed: () {
+              Navigator.pushNamed(context, '/loginin');
+            },
             child: Icon(
               Icons.people_outline,
               color: Colors.black,
@@ -76,7 +78,7 @@ class _Home_pageState extends State<Home_page> {
   Widget _buildListItem(BuildContext context, int index) {
     Product product = productList[index];
     return SizedBox(
-      width: 150,
+      width: 175,
       height: 300,
       child: Card(
         elevation: 12,
