@@ -1,6 +1,7 @@
 import 'package:coffe_project/screens/home_page.dart';
 import 'package:coffe_project/screens/sigin_page.dart';
 import 'package:coffe_project/screens/signup_page.dart';
+import 'package:coffe_project/screens/verify_email_screen.dart';
 import 'package:coffe_project/services/firebase_streem.dart';
 import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
@@ -11,9 +12,7 @@ Future<void> main() async {
   await Firebase.initializeApp(
     options: DefaultFirebaseOptions.currentPlatform,
   );
-  runApp( MaterialApp(
-    home: Home_page(),
-  ));
+  runApp(const MyApp());
 }
 
 
