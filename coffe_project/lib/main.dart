@@ -1,5 +1,6 @@
 import 'package:coffe_project/screens/home_page.dart';
 import 'package:coffe_project/screens/loginin.dart';
+import 'package:coffe_project/screens/product_page.dart';
 import 'package:coffe_project/screens/sigin_page.dart';
 import 'package:coffe_project/screens/signup_page.dart';
 import 'package:coffe_project/screens/test.dart';

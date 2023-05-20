@@ -1,6 +1,7 @@
 import 'package:coffe_project/screens/loginin.dart';
 import 'package:coffe_project/screens/sigin_page.dart';
 import 'package:coffe_project/screens/signup_page.dart';
+import 'package:coffe_project/screens/product_page.dart';
 import 'package:curved_navigation_bar/curved_navigation_bar.dart';
 import 'package:flutter/material.dart';
 import 'package:scroll_snap_list/scroll_snap_list.dart';
@@ -110,7 +111,7 @@ class _Home_pageState extends State<Home_page> {
             splashColor: Colors.transparent,
             highlightColor: Colors.transparent,
             onPressed: () {
-
+              Navigator.push(context,MaterialPageRoute(builder: (context)=> Product_information(product)));
             },
             child: Column(
               children: [
