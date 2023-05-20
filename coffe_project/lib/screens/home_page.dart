@@ -1,4 +1,6 @@
 import 'package:coffe_project/screens/loginin.dart';
+import 'package:coffe_project/screens/sigin_page.dart';
+import 'package:coffe_project/screens/signup_page.dart';
 import 'package:curved_navigation_bar/curved_navigation_bar.dart';
 import 'package:flutter/material.dart';
 import 'package:scroll_snap_list/scroll_snap_list.dart';
@@ -41,7 +43,7 @@ class _Home_pageState extends State<Home_page> {
                       builder: (BuildContext context) {
                         return FractionallySizedBox(
                           heightFactor: 497/mediaQuery.height,
-                          child: Loginin(),
+                          child: signin_menu(),
                         );
                       },
                     );
