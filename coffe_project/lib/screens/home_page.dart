@@ -13,8 +13,8 @@ class Home_page extends StatefulWidget {
 }
 
 class _Home_pageState extends State<Home_page> {
-  int indexpage= 0;
- List<Product> productList =[
+  int indexpage = 0;
+  List<Product> productList = [
     Product('images/stakan1.jpg', "Kapushino", 100, 20),
     Product('images/stakan2.jpg', "Nigo", 200, 30),
     Product('images/stakan3.jpg', "GelMunna", 300, 40),
@@ -22,48 +22,55 @@ class _Home_pageState extends State<Home_page> {
   ];
   Widget build(BuildContext context) {
     return Scaffold(
-        appBar: AppBar(
-          leading: Icon(Icons.people_outline,color: Colors.black,),
-          centerTitle: true,
-          title: const Text("Name",style: TextStyle(color: Colors.black),),
-          actions: [
-            Icon(Icons.shopping_basket_rounded,color: Colors.black,),
-          ],
-          elevation: 0,
-          backgroundColor: Colors.transparent,
-        ),
-        body: SizedBox(
-          height: 250,
-          child: ScrollSnapList(
-            itemBuilder: _buildListItem,
-            itemCount: productList.length,
-            itemSize: 150,
-            onItemFocus: (index) {},
-            dynamicItemSize: true,
-          ),
-          
-        ),
-        bottomNavigationBar: CurvedNavigationBar(
-          backgroundColor: Colors.grey,
-          color: Colors.grey.shade200,
-          animationDuration: Duration(milliseconds: 300),
-          items: [
-            Icon(
-              Icons.coffee,
-              color: Colors.black
-
-            ),
-            Icon(
-              Icons.donut_small_sharp,
-            ),
-            Icon(
-              Icons.coffee_maker,
+      appBar: AppBar(
+        leading: MaterialButton(
+            splashColor: Colors.transparent,
+            highlightColor: Colors.transparent,
+            onPressed: () {},
+            child: Icon(
+              Icons.people_outline,
               color: Colors.black,
-            ),
-          ],
+            )),
+        centerTitle: true,
+        title: const Text(
+          "Name",
+          style: TextStyle(color: Colors.black),
         ),
-        
-        );
+        actions: [
+          Icon(
+            Icons.shopping_basket_rounded,
+            color: Colors.black,
+          ),
+        ],
+        elevation: 0,
+        backgroundColor: Colors.transparent,
+      ),
+      body: SizedBox(
+        height: 250,
+        child: ScrollSnapList(
+          itemBuilder: _buildListItem,
+          itemCount: productList.length,
+          itemSize: 150,
+          onItemFocus: (index) {},
+          dynamicItemSize: true,
+        ),
+      ),
+      bottomNavigationBar: CurvedNavigationBar(
+        backgroundColor: Colors.grey,
+        color: Colors.grey.shade200,
+        animationDuration: Duration(milliseconds: 300),
+        items: [
+          Icon(Icons.coffee, color: Colors.black),
+          Icon(
+            Icons.donut_small_sharp,
+          ),
+          Icon(
+            Icons.coffee_maker,
+            color: Colors.black,
+          ),
+        ],
+      ),
+    );
   }
 
   Widget _buildListItem(BuildContext context, int index) {
