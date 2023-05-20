@@ -76,13 +76,14 @@ class _Home_pageState extends State<Home_page> {
       height: 300,
       child: Card(
         elevation: 12,
-        child: ClipRRect(
+        child: ClipRRect( 
+          
           borderRadius: const BorderRadius.all(Radius.circular(10)),
           child: MaterialButton(
             splashColor: Colors.transparent,
             highlightColor: Colors.transparent,
             onPressed: () {
-              
+
             },
             child: Column(
               children: [
