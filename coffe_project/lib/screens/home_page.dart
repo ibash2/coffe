@@ -8,13 +8,33 @@ class Home_page extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      body: Center(
-          child: MaterialButton(
-        onPressed: () {
+      appBar: AppBar(
+        actions: [
+          IconButton(onPressed: (){}, icon: Icon(Icons.shopping_basket))
+        ],
+        leading: Icon(Icons.people_alt),
+      ),
+      body: Column(
+        children: [
+          SizedBox(
+            height: 250,
+            child: ScrollSnapList(
+            itemBuilder: itemBuilder,
+            itemCount: itemCount,
+            itemSize: itemSize,
+            onItemFocus: onItemFocus,
+            
+          ),
+          ),
+
+          MaterialButton(
+            onPressed: () {
           Navigator.pushNamed(context, '/signup');
-        },
-        child: Text("кнопка"),
-      )),
+            },
+            child: Text("кнопка"),
+          ),
+        ],
+      ),
     );
   }
 }
