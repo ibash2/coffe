@@ -76,7 +76,11 @@ class _VerifyEmailScreenState extends State<VerifyEmailScreen> {
   @override
   Widget build(BuildContext context) => isEmailVerified
       ? Home_page()
-      : Scaffold(
+      : Container(
+      decoration:BoxDecoration( 
+        image: DecorationImage(image: AssetImage('images/register.png')),
+        ),
+        child: Scaffold(
           resizeToAvoidBottomInset: false,
           appBar: AppBar(
             toolbarHeight: 69,
@@ -125,7 +129,7 @@ class _VerifyEmailScreenState extends State<VerifyEmailScreen> {
                   shape: const RoundedRectangleBorder(borderRadius: BorderRadius.all(Radius.circular(14))),
                   minWidth: 339,
                   height: 57,
-                  color: Color.fromRGBO(167, 184, 159, 1),
+                  color: Color.fromRGBO(58, 43, 37, 1),
                   onPressed: canResendEmail ? sendVerificationEmail : null,
                   child: Text('Отправить повторно',  style: SafeGoogleFont('SF Pro Display',fontSize: 18,fontWeight: FontWeight.w500,color: Colors.white),),
                 
@@ -135,5 +139,5 @@ class _VerifyEmailScreenState extends State<VerifyEmailScreen> {
               ],
             ),
           ),
-        );
+        ),);
 }
