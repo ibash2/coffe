@@ -6,6 +6,7 @@ import 'package:flutter/material.dart';
 import 'package:scroll_snap_list/scroll_snap_list.dart';
 
 import '../Widget/product.dart';
+import 'home_reg_widget.dart';
 
 // ignore: camel_case_types
 class Home_page extends StatefulWidget {
@@ -42,8 +43,8 @@ class _Home_pageState extends State<Home_page> {
                       context: context,
                       builder: (BuildContext context) {
                         return FractionallySizedBox(
-                          heightFactor: 497/mediaQuery.height,
-                          child: signin_menu(),
+                          heightFactor: 430/mediaQuery.height,
+                          child: Reg_menu(),
                         );
                       },
                     );

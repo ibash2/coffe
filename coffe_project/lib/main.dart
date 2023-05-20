@@ -2,6 +2,7 @@ import 'package:coffe_project/screens/home_page.dart';
 import 'package:coffe_project/screens/loginin.dart';
 import 'package:coffe_project/screens/sigin_page.dart';
 import 'package:coffe_project/screens/signup_page.dart';
+import 'package:coffe_project/screens/test.dart';
 import 'package:coffe_project/screens/verify_email_screen.dart';
 import 'package:coffe_project/services/firebase_streem.dart';
 import 'package:firebase_core/firebase_core.dart';
@@ -13,7 +14,9 @@ Future<void> main() async {
   await Firebase.initializeApp(
     options: DefaultFirebaseOptions.currentPlatform,
   );
-  runApp(const MyApp());
+  runApp(MaterialApp(
+    home: test(),
+  ));
 }
 
 
