@@ -73,6 +73,8 @@ flutter:
    - images/mail.png
    - images/illustration-animal.png
    - images/register.png
+   - images/13 Pro - 1.png
+   - images/profil.png
   # An image asset can refer to one or more resolution-specific "variants", see
   # https://flutter.dev/assets-and-images/#resolution-aware
 
