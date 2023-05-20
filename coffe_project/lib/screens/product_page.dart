@@ -29,7 +29,7 @@ class Product_information extends StatelessWidget {
         leading: MaterialButton(onPressed: () {
           
         },
-        child:  Icon(Icons.supervised_user_circle_rounded),
+        child:  Image.asset('images/profil.png'),
         ),
       ),
       body: Column(
