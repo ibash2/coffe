@@ -13,6 +13,7 @@ import 'home_reg_widget.dart';
 class Home_page extends StatefulWidget {
   const Home_page({super.key});
 
+
   @override
   State<Home_page> createState() => _Home_pageState();
 }
