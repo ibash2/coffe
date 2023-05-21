@@ -1,13 +1,13 @@
 import 'package:flutter/material.dart';
 
 
-class MyOrders extends StatelessWidget {
-  const MyOrders({super.key});
+class MyKupons extends StatelessWidget {
+  const MyKupons({super.key});
 
   @override
   Widget build(BuildContext context) {
     return Container(
-       decoration: BoxDecoration(
+      decoration: BoxDecoration(
         image: DecorationImage(
             fit: BoxFit.fill, image: AssetImage('images/register.png')),
       ),
@@ -17,17 +17,14 @@ class MyOrders extends StatelessWidget {
           backgroundColor: Colors.transparent,
           elevation: 0,
           centerTitle: true,
-          title: Text("Мои заказы",style:TextStyle(color: Colors.black)),
+          title: Text("Мои купоны",style: TextStyle(color: Colors.black),),
         ),
         body: Center(
-          child: Container(
-            child:  Text("""В истории заказов пусто :(
-                      Всё еще впереди!"""),
-            ),
+          child: Text(
+            "Тут пока пусто."
           ),
-        
-        
         ),
+      ),
     );
   }
 }
