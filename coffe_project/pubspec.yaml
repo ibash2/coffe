@@ -83,6 +83,15 @@ flutter:
    - images/corz.png
    - images/copo_cafe.png
    - images/Frame 9.png
+   - images/shopping-bag.png
+   - images/map.png
+   - images/credit-card.png
+   - images/award.png
+   - images/sliders.png
+   - images/minimize-2.png
+   - images/Rectangle 3.png
+   - images/Rectangle 3 (1).png
+   - images/Rectangle 3 (2).png 
   # An image asset can refer to one or more resolution-specific "variants", see
   # https://flutter.dev/assets-and-images/#resolution-aware
 

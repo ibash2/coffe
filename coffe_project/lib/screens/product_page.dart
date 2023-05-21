@@ -1,9 +1,9 @@
 import 'package:coffe_project/Widget/product.dart';
 import 'package:coffe_project/Widget/utils.dart';
+import 'package:coffe_project/screens/profile.dart';
 import 'package:coffe_project/screens/select_dop.dart';
 import 'package:coffe_project/screens/sigin_page.dart';
 import 'package:flutter/material.dart';
-
 import '../Widget/product.dart';
 import '../Widget/product.dart';
 import '../Widget/product.dart';
@@ -50,28 +50,29 @@ class _Product_informationState extends State<Product_information> {
           ),
           leading: MaterialButton(
             onPressed: () {
-              showModalBottomSheet(
-                  backgroundColor: Color(0xffffffff),
-                  isScrollControlled: true,
-                  shape: const RoundedRectangleBorder(
-                      borderRadius: BorderRadius.only(
-                    topRight: Radius.circular(16),
-                    topLeft: Radius.circular(16),
-                  )),
-                  context: context,
-                  builder: (BuildContext context) {
-                    return FractionallySizedBox(
-                      heightFactor: 550 / mediaQuery.height,
-                      child: signin_menu(),
-                    );
-                  },
-                );
+              Navigator.push(context, MaterialPageRoute(builder:(context) => MyProfile()));
+              // showModalBottomSheet(
+              //     backgroundColor: Color(0xffffffff),
+              //     isScrollControlled: true,
+              //     shape: const RoundedRectangleBorder(
+              //         borderRadius: BorderRadius.only(
+              //       topRight: Radius.circular(16),
+              //       topLeft: Radius.circular(16),
+              //     )),
+              //     context: context,
+              //     builder: (BuildContext context) {
+              //       return FractionallySizedBox(
+              //         heightFactor: 550 / mediaQuery.height,
+              //         child: signin_menu(),
+              //       );
+              //     },
+              //   );
             },
             child: Image.asset('images/profil.png', height: 18),
           ),
           actions: [
             MaterialButton(
-              minWidth: 25,
+              minWidth: 20,
               onPressed: () {},
               child: Image.asset('images/corz.png', height: 21),
             ),
@@ -95,7 +96,7 @@ class _Product_informationState extends State<Product_information> {
                   style: SafeGoogleFont('Sarala',
                       color: Colors.white,
                       fontSize: 24,
-                      fontWeight: FontWeight.w700),
+                      fontWeight: FontWeight.w900),
                 )),
                 Center(
                     child: Text(

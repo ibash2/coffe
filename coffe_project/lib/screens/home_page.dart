@@ -1,6 +1,7 @@
 import 'dart:io';
 
 import 'package:coffe_project/Widget/utils.dart';
+import 'package:coffe_project/screens/basket_page.dart';
 import 'package:coffe_project/screens/loginin.dart';
 import 'package:coffe_project/screens/profile.dart';
 import 'package:coffe_project/screens/sigin_page.dart';
@@ -42,12 +43,12 @@ class _Home_pageState extends State<Home_page> with TickerProviderStateMixin {
 
 
   List<Product> productList = [
-    Product('images/coffee_01.png', "Kapushino", 100, 20),
-    Product('images/coffee_02.png', "Nigo", 200, 30),
-    Product('images/coffee_03.png', "GelMunna", 300, 40),
+    Product('images/coffee_01.png', "Латте", 100, 20),
+    Product('images/coffee_02.png', "Эспрессо", 200, 30),
+    Product('images/coffee_03.png', "Латте-макиато", 300, 40),
   ];
   Widget build(BuildContext context) {
-   
+   cot = cot+1;
 
     TabController _tabController = TabController(length: 2, vsync: this);
     final mediaQuery = MediaQuery.of(context).size;
@@ -91,11 +92,16 @@ class _Home_pageState extends State<Home_page> with TickerProviderStateMixin {
                 color: Colors.black, fontSize: 22, fontWeight: FontWeight.w700),
           ),
           actions: [
-            Padding(
-              padding: const EdgeInsets.only(right: 10),
-              child: Image.asset(
-                'images/corz.png',
-                width: 21,
+            MaterialButton(
+              onPressed: (){
+                Navigator.push(context, MaterialPageRoute(builder:(context) => MyBasket() ));
+              },
+              child: Padding(
+                padding: const EdgeInsets.only(right: 10),
+                child: Image.asset(
+                  'images/corz.png',
+                  width: 21,
+                ),
               ),
             )
           ],
@@ -242,23 +248,103 @@ class Pon extends StatelessWidget {
       padding: const EdgeInsets.only(top:20,left: 20,right: 20),
       child: Container(
       
-        child: Column(children: [
+        child: ListView(
+          
+        scrollDirection: Axis.vertical,
+        shrinkWrap: true,children: [
           Container(
-            height: 50,
-            color: Colors.orange,
+            child: Row(
+              children: [
+                Container(
+                  height: 87,
+                  child: Image.asset('images/Rectangle 3.png'),
+                ),
+                Padding(
+                  padding: const EdgeInsets.only(left: 10,top: 10),
+                  child: Column(
+                    crossAxisAlignment: CrossAxisAlignment.start,
+                    children: [
+                    Text("Фиолетовый с посыпкой",style: SafeGoogleFont('Inter',fontSize: 20,fontWeight: FontWeight.w400,
+                    ),),
+                    Text('120р',style: SafeGoogleFont('Sarala',fontSize: 20,fontWeight: FontWeight.w700,
+                    ),)
+                  ],),
+                )
+              ],
+            ),
+            decoration: BoxDecoration(boxShadow:[
+               BoxShadow(
+                offset: Offset(6, 4),
+                  color: Color.fromRGBO(0, 0, 0, 0.25),
+                  blurRadius: 4,
+                ),
+            ], color: Colors.white,borderRadius: BorderRadius.circular(30)),
+            height: 87,
+            
           ),
-          Container(
-            height: 50,
-            color: Colors.orange,
+          SizedBox(height: 10,),
+            Container(
+            child: Row(
+              children: [
+                Container(
+                  height: 87,
+                  child: Image.asset('images/Rectangle 3 (1).png'),
+                ),
+                Padding(
+                  padding: const EdgeInsets.only(left: 10,top: 10),
+                  child: Column(
+                    crossAxisAlignment: CrossAxisAlignment.start,
+                    children: [
+                    Text("Клубничный",style: SafeGoogleFont('Inter',fontSize: 24,fontWeight: FontWeight.w400,
+                    ),),
+                    Text('120р',style: SafeGoogleFont('Sarala',fontSize: 20,fontWeight: FontWeight.w700,
+                    ),)
+                  ],),
+                )
+              ],
+            ),
+            decoration: BoxDecoration(boxShadow:[
+               BoxShadow(
+                offset: Offset(6, 4),
+                  color: Color.fromRGBO(0, 0, 0, 0.25),
+                  blurRadius: 4,
+                ),
+            ], color: Colors.white,borderRadius: BorderRadius.circular(30)),
+            height: 87,
+            
           ),
-          Container(
-            height: 50,
-            color: Colors.orange,
+          SizedBox(height: 10,),
+         Container(
+            child: Row(
+              children: [
+                Container(
+                  height: 87,
+                  child: Image.asset('images/Rectangle 3 (2).png'),
+                ),
+                Padding(
+                  padding: const EdgeInsets.only(left: 10,top: 10),
+                  child: Column(
+                    crossAxisAlignment: CrossAxisAlignment.start,
+                    children: [
+                    Text("Черничный",style: SafeGoogleFont('Inter',fontSize: 24,fontWeight: FontWeight.w400,
+                    ),),
+                    Text('120р',style: SafeGoogleFont('Sarala',fontSize: 20,fontWeight: FontWeight.w700,
+                    ),)
+                  ],),
+                )
+              ],
+            ),
+            decoration: BoxDecoration(boxShadow:[
+               BoxShadow(
+                offset: Offset(6, 4),
+                  color: Color.fromRGBO(0, 0, 0, 0.25),
+                  blurRadius: 4,
+                ),
+            ], color: Colors.white,borderRadius: BorderRadius.circular(30)),
+            height: 87,
+            
           ),
-          Container(
-            height: 50,
-            color: Colors.orange,
-          ),
+          
           
         ]),
     
@@ -283,15 +369,15 @@ class kof extends StatelessWidget {
           ),
           Container(
             height: 50,
-            color: Colors.orange,
+            color: Colors.white,
           ),
           Container(
             height: 50,
-            color: Colors.orange,
+            color: Colors.white,
           ),
           Container(
             height: 50,
-            color: Colors.orange,
+            color: Colors.white,
           ),
           
         ]),
