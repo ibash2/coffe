@@ -1,20 +1,28 @@
 import 'package:coffe_project/Widget/product.dart';
 import 'package:coffe_project/Widget/utils.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_xlider/flutter_xlider.dart';
 import '../Widget/product.dart';
 import '../Widget/product.dart';
 import '../Widget/product.dart';
 import 'home_reg_widget.dart';
 
-class Select_dop extends StatelessWidget {
+class Select_dop extends StatefulWidget {
   final prod;
   final cen;
 
   Select_dop({super.key, this.prod, this.cen});
 
   @override
+  State<Select_dop> createState() => _Select_dopState();
+}
+
+class _Select_dopState extends State<Select_dop> {
+  double _currentSliderValue = 20;
+  @override
   Widget build(BuildContext context) {
     final mediaQuery = MediaQuery.of(context).size;
+
     return Container(
       height: double.maxFinite,
       decoration: BoxDecoration(
@@ -56,7 +64,7 @@ class Select_dop extends StatelessWidget {
                 children: [
                   Center(
                       child: Text(
-                    prod,
+                    widget.prod,
                     style: SafeGoogleFont('Sarala',
                         color: Colors.white,
                         fontSize: 24,
@@ -64,7 +72,7 @@ class Select_dop extends StatelessWidget {
                   )),
                   Center(
                       child: Text(
-                    "${cen}\р",
+                    "${widget.cen}\р",
                     style: SafeGoogleFont('Sarala',
                         color: Color.fromRGBO(64, 64, 64, 1),
                         fontSize: 20,
@@ -115,95 +123,309 @@ class Select_dop extends StatelessWidget {
                                 Container(
                                   width: 150,
                                   child: ExpansionTile(
-                                      children: [Text('sdsd')],
+                                    children: [
+                                      Container(
+                                          height: 150,
+                                          child: FlutterSlider(
+                                            step: FlutterSliderStep(
+                                                step: 1, 
+                                                isPercentRange:
+                                                    true, 
+                                                rangeList: [
+                                                  FlutterSliderRangeStep(
+                                                      from: 0,
+                                                      to: 20,
+                                                      step: 20),
+                                                  FlutterSliderRangeStep(
+                                                      from: 20,
+                                                      to: 40,
+                                                      step: 40),
+                                                ]),
+                                            touchSize: 35,
+                                            tooltip: FlutterSliderTooltip(
+                                              disabled: true,
+                                            ),
+                                            handlerHeight: 35,
+                                            handlerWidth: 35,
+                                            rtl: true,
+                                            axis: Axis.vertical,
+                                            trackBar: const FlutterSliderTrackBar(
+                                                activeTrackBarHeight: 10,
+                                                inactiveTrackBarHeight: 10,
+                                                inactiveTrackBar: BoxDecoration(
+                                                    color: Colors.black,
+                                                    borderRadius:
+                                                        BorderRadius.all(Radius
+                                                            .circular(50))),
+                                                activeTrackBar: BoxDecoration(
+                                                    color: Colors.white,
+                                                    borderRadius:
+                                                        BorderRadius.all(
+                                                            Radius.circular(
+                                                                50)))),
+                                            handler: FlutterSliderHandler(
+                                                child: Text(' '),
+                                                decoration: BoxDecoration(
+                                                    color: Color.fromRGBO(
+                                                        255, 157, 67, 1),
+                                                    borderRadius:
+                                                        BorderRadius.circular(
+                                                            50))),
+                                            values: [20],
+                                            max: 100,
+                                            min: 0,
+                                          ),
+                                        ),
+                                    ],
                                       title: Column(
-                                        crossAxisAlignment: CrossAxisAlignment.end,
-                                        children: [
-                                        Text(
-                                        'Крем',
-                                        style: TextStyle(
-                                            color: Colors.white,
-                                            fontSize: 20,
-                                            fontWeight: FontWeight.w700),
+                                        crossAxisAlignment:
+                                            CrossAxisAlignment.end,
+                                        children: const [
+                                          Text(
+                                            'Крем',
+                                            style: TextStyle(
+                                                color: Colors.white,
+                                                fontSize: 20,
+                                                fontWeight: FontWeight.w700),
+                                          ),
+                                          Text(
+                                            '1  порция',
+                                            style: TextStyle(
+                                                color: Color.fromRGBO(
+                                                    133, 133, 133, 1),
+                                                fontSize: 16,
+                                                fontWeight: FontWeight.w400),
+                                          ),
+                                        ],
                                       ),
-                                      Text(
-                                        '1  порция',
-                                        style: TextStyle(
-                                            color: Color.fromRGBO(133, 133, 133, 1),
-                                            fontSize: 16,
-                                            fontWeight: FontWeight.w400),
-                                      ),
-                                      ],)),
-                                ),
-                                Container(
-                                  width: 180,
-                                  child: ExpansionTile(
-                                      children: [Text('sdsd')],
-                                      title: Column(
-                                        crossAxisAlignment: CrossAxisAlignment.end,
-                                        children: [
-                                        Text(
-                                        'Карамель',
-                                        style: TextStyle(
-                                            color: Colors.white,
-                                            fontSize: 20,
-                                            fontWeight: FontWeight.w700),
-                                      ),
-                                      Text(
-                                        '2  порция',
-                                        style: TextStyle(
-                                            color: Color.fromRGBO(133, 133, 133, 1),
-                                            fontSize: 16,
-                                            fontWeight: FontWeight.w400),
-                                      ),
-                                      ],)),
-                                ),
+                                        
+                              ),
+                              ),
+                              
                                Container(
-                                  width: 150,
-                                  child: ExpansionTile(
-                                      children: [Text('sdsd')],
-                                      title: Column(
-                                        crossAxisAlignment: CrossAxisAlignment.end,
-                                        children: [
-                                        Text(
-                                        'Молоко',
-                                        style: TextStyle(
-                                            color: Colors.white,
-                                            fontSize: 20,
-                                            fontWeight: FontWeight.w700),
-                                      ),
-                                      Text(
-                                        '1  порция',
-                                        style: TextStyle(
-                                            color: Color.fromRGBO(133, 133, 133, 1),
-                                            fontSize: 16,
-                                            fontWeight: FontWeight.w400),
-                                      ),
-                                      ],)),
-                                ),
-                               Container(
-                                  width: 150,
-                                  child: ExpansionTile(
-                                      children: [Text('sdsd')],
-                                      title: Column(
-                                        crossAxisAlignment: CrossAxisAlignment.end,
-                                        children: [
-                                        Text(
-                                        'Сахар',
-                                        style: TextStyle(
-                                            color: Colors.white,
-                                            fontSize: 20,
-                                            fontWeight: FontWeight.w700),
-                                      ),
-                                      Text(
-                                        '1  порция',
-                                        style: TextStyle(
-                                            color: Color.fromRGBO(133, 133, 133, 1),
-                                            fontSize: 16,
-                                            fontWeight: FontWeight.w400),
-                                      ),
-                                      ],)),
-                                ),
+                                 width: 180,
+                                 child: ExpansionTile(
+                                     children: [FlutterSlider(
+                                           step: FlutterSliderStep(
+                                               step: 1, 
+                                               isPercentRange:
+                                                   true, 
+                                               rangeList: [
+                                                 FlutterSliderRangeStep(
+                                                     from: 0,
+                                                     to: 20,
+                                                     step: 20),
+                                                 FlutterSliderRangeStep(
+                                                     from: 20,
+                                                     to: 40,
+                                                     step: 40),
+                                               ]),
+                                           touchSize: 35,
+                                           tooltip: FlutterSliderTooltip(
+                                             disabled: true,
+                                           ),
+                                           handlerHeight: 35,
+                                           handlerWidth: 35,
+                                           rtl: true,
+                                           axis: Axis.vertical,
+                                           trackBar: const FlutterSliderTrackBar(
+                                               activeTrackBarHeight: 10,
+                                               inactiveTrackBarHeight: 10,
+                                               inactiveTrackBar: BoxDecoration(
+                                                   color: Colors.black,
+                                                   borderRadius:
+                                                       BorderRadius.all(Radius
+                                                           .circular(50))),
+                                               activeTrackBar: BoxDecoration(
+                                                   color: Colors.white,
+                                                   borderRadius:
+                                                       BorderRadius.all(
+                                                           Radius.circular(
+                                                               50)))),
+                                           handler: FlutterSliderHandler(
+                                               child: Text(' '),
+                                               decoration: BoxDecoration(
+                                                   color: Color.fromRGBO(
+                                                       255, 157, 67, 1),
+                                                   borderRadius:
+                                                       BorderRadius.circular(
+                                                           50))),
+                                           values: [20],
+                                           max: 100,
+                                           min: 0,
+                                         ),],
+                                     title: Column(
+                                       crossAxisAlignment:
+                                           CrossAxisAlignment.end,
+                                       children: [
+                                         Text(
+                                           'Карамель',
+                                           style: TextStyle(
+                                               color: Colors.white,
+                                               fontSize: 20,
+                                               fontWeight: FontWeight.w700),
+                                         ),
+                                         Text(
+                                           '2  порция',
+                                           style: TextStyle(
+                                               color: Color.fromRGBO(
+                                                   133, 133, 133, 1),
+                                               fontSize: 16,
+                                               fontWeight: FontWeight.w400),
+                                         ),
+                                       ],
+                                     )),
+                               ),
+                                  
+                                  Container(
+                                    width: 150,
+                                    child: ExpansionTile(
+                                 children: [FlutterSlider(
+                                       step: FlutterSliderStep(
+                                           step: 1, 
+                                           isPercentRange:
+                                               true, 
+                                           rangeList: [
+                                             FlutterSliderRangeStep(
+                                                 from: 0,
+                                                 to: 20,
+                                                 step: 20),
+                                             FlutterSliderRangeStep(
+                                                 from: 20,
+                                                 to: 40,
+                                                 step: 40),
+                                           ]),
+                                       touchSize: 35,
+                                       tooltip: FlutterSliderTooltip(
+                                         disabled: true,
+                                       ),
+                                       handlerHeight: 35,
+                                       handlerWidth: 35,
+                                       rtl: true,
+                                       axis: Axis.vertical,
+                                       trackBar: const FlutterSliderTrackBar(
+                                           activeTrackBarHeight: 10,
+                                           inactiveTrackBarHeight: 10,
+                                           inactiveTrackBar: BoxDecoration(
+                                               color: Colors.black,
+                                               borderRadius:
+                                                   BorderRadius.all(Radius
+                                                       .circular(50))),
+                                           activeTrackBar: BoxDecoration(
+                                               color: Colors.white,
+                                               borderRadius:
+                                                   BorderRadius.all(
+                                                       Radius.circular(
+                                                           50)))),
+                                       handler: FlutterSliderHandler(
+                                           child: Text(' '),
+                                           decoration: BoxDecoration(
+                                               color: Color.fromRGBO(
+                                                   255, 157, 67, 1),
+                                               borderRadius:
+                                                   BorderRadius.circular(
+                                                       50))),
+                                       values: [20],
+                                       max: 100,
+                                       min: 0,
+                                     ),],
+                                 title: Column(
+                                   crossAxisAlignment:
+                                       CrossAxisAlignment.end,
+                                   children: [
+                                     Text(
+                                       'Молоко',
+                                       style: TextStyle(
+                                           color: Colors.white,
+                                           fontSize: 20,
+                                           fontWeight: FontWeight.w700),
+                                     ),
+                                     Text(
+                                       '1  порция',
+                                       style: TextStyle(
+                                           color: Color.fromRGBO(
+                                               133, 133, 133, 1),
+                                           fontSize: 16,
+                                           fontWeight: FontWeight.w400),
+                                     ),
+                                   ],
+                                 )),
+                                  ),
+                                  Container(
+                                    width: 150,
+                                    child: ExpansionTile(
+                                 children: [FlutterSlider(
+                                       step: FlutterSliderStep(
+                                           step: 1, 
+                                           isPercentRange:
+                                               true, 
+                                           rangeList: [
+                                             FlutterSliderRangeStep(
+                                                 from: 0,
+                                                 to: 20,
+                                                 step: 20),
+                                             FlutterSliderRangeStep(
+                                                 from: 20,
+                                                 to: 40,
+                                                 step: 40),
+                                           ]),
+                                       touchSize: 35,
+                                       tooltip: FlutterSliderTooltip(
+                                         disabled: true,
+                                       ),
+                                       handlerHeight: 35,
+                                       handlerWidth: 35,
+                                       rtl: true,
+                                       axis: Axis.vertical,
+                                       trackBar: const FlutterSliderTrackBar(
+                                           activeTrackBarHeight: 10,
+                                           inactiveTrackBarHeight: 10,
+                                           inactiveTrackBar: BoxDecoration(
+                                               color: Colors.black,
+                                               borderRadius:
+                                                   BorderRadius.all(Radius
+                                                       .circular(50))),
+                                           activeTrackBar: BoxDecoration(
+                                               color: Colors.white,
+                                               borderRadius:
+                                                   BorderRadius.all(
+                                                       Radius.circular(
+                                                           50)))),
+                                       handler: FlutterSliderHandler(
+                                           child: Text(' '),
+                                           decoration: BoxDecoration(
+                                               color: Color.fromRGBO(
+                                                   255, 157, 67, 1),
+                                               borderRadius:
+                                                   BorderRadius.circular(
+                                                       50))),
+                                       values: [20],
+                                       max: 100,
+                                       min: 0,
+                                     ),],
+                                 title: Column(
+                                   crossAxisAlignment:
+                                       CrossAxisAlignment.end,
+                                   children: [
+                                     Text(
+                                       'Сахар',
+                                       style: TextStyle(
+                                           color: Colors.white,
+                                           fontSize: 20,
+                                           fontWeight: FontWeight.w700),
+                                     ),
+                                     Text(
+                                       '1  порция',
+                                       style: TextStyle(
+                                           color: Color.fromRGBO(
+                                               133, 133, 133, 1),
+                                           fontSize: 16,
+                                           fontWeight: FontWeight.w400),
+                                     ),
+                                   ],
+                                 )),
+                                  ),
+                                
                               ],
                             ),
                           ),
