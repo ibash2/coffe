@@ -1,6 +1,7 @@
 import 'dart:io';
 
 import 'package:coffe_project/screens/loginin.dart';
+import 'package:coffe_project/screens/profile.dart';
 import 'package:coffe_project/screens/sigin_page.dart';
 import 'package:coffe_project/screens/signup_page.dart';
 import 'package:coffe_project/screens/product_page.dart';
@@ -29,6 +30,7 @@ class _Home_pageState extends State<Home_page> with TickerProviderStateMixin {
   Widget build(BuildContext context) {
 
     TabController _tabController = TabController(length: 2, vsync: this);
+    final mediaQuery = MediaQuery.of(context).size;
     return Container(
       decoration: BoxDecoration(
         image: DecorationImage(
@@ -40,7 +42,9 @@ class _Home_pageState extends State<Home_page> with TickerProviderStateMixin {
           leading: MaterialButton(
               splashColor: Colors.transparent,
               highlightColor: Colors.transparent,
-              onPressed: () {
+              onPressed: (
+                
+              ) {
                 showModalBottomSheet(
                   backgroundColor: Color(0xffffffff),
                   isScrollControlled: true,
@@ -59,8 +63,13 @@ class _Home_pageState extends State<Home_page> with TickerProviderStateMixin {
                 );
                 // Navigator.pushNamed(context, '/loginin');
               },
-              child: Icon(
-                Icons.people_outline,
+              child: IconButton(
+                onPressed: (){Navigator.push(
+                  context,
+                  MaterialPageRoute(
+                      builder: (context) => MyProfile()));
+            },
+                icon : Icon(Icons.people_outline),
                 color: Colors.black,
               )),
           centerTitle: true,
