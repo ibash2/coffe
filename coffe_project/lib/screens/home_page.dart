@@ -1,3 +1,5 @@
+import 'dart:io';
+
 import 'package:coffe_project/screens/loginin.dart';
 import 'package:coffe_project/screens/sigin_page.dart';
 import 'package:coffe_project/screens/signup_page.dart';
@@ -18,7 +20,8 @@ class Home_page extends StatefulWidget {
   State<Home_page> createState() => _Home_pageState();
 }
 
-class _Home_pageState extends State<Home_page> {
+class _Home_pageState extends State<Home_page>  with TickerProviderStateMixin {
+  
   int indexpage = 0;
   List<Product> productList = [
     Product('images/coffee_01.png', "Kapushino", 100, 20),
@@ -26,6 +29,8 @@ class _Home_pageState extends State<Home_page> {
     Product('images/coffee_03.png', "GelMunna", 300, 40),
   ];
   Widget build(BuildContext context) {
+    
+  final TabController _tabController = TabController(length: 2, vsync: this);
     final mediaQuery = MediaQuery.of(context).size;
     return Container(
       decoration:BoxDecoration( 
@@ -74,32 +79,88 @@ class _Home_pageState extends State<Home_page> {
         elevation: 0,
         backgroundColor: Colors.transparent,
       ),
-      body: SizedBox(
-        height: 250,
-        child: ScrollSnapList(
-          itemBuilder: _buildListItem,
-          itemCount: productList.length,
-          itemSize: 150,
-          onItemFocus: (index) {},
-          dynamicItemSize: true,
-        ),
-      ),
-      bottomNavigationBar: CurvedNavigationBar(
-        backgroundColor: Colors.grey,
-        color: Colors.grey.shade200,
-        animationDuration: Duration(milliseconds: 300),
-        items: [
-          Icon(Icons.coffee, color: Colors.black),
-          Icon(
-            Icons.donut_small_sharp,
+      body: Column(
+        children: [
+          SizedBox(
+            height: 250,
+            child: ScrollSnapList(
+              itemBuilder: _buildListItem,
+              itemCount: productList.length,
+              itemSize: 150,
+              onItemFocus: (index) {},
+              dynamicItemSize: true,
+            ),
           ),
-          Icon(
-            Icons.coffee_maker,
-            color: Colors.black,
+          SizedBox(height: 15,),
+          Row(
+            mainAxisAlignment: MainAxisAlignment.spaceBetween,
+            children: [
+              Padding(
+                padding: const EdgeInsets.all(8.0),
+                child: Container(
+                  width: 150,
+                  height: 50,
+                  decoration: BoxDecoration(
+                    borderRadius: BorderRadius.circular(10),
+                    color: Colors.transparent,
+                  ),
+                  child: Center(
+                    child: Text(
+                      "Напитки",style: TextStyle(color: Colors.black,fontSize: 20),
+                    ),
+                  ),
+                ),
+              ),
+               Padding(
+                 padding: const EdgeInsets.all(8.0),
+                 child: Container(
+                  width: 150,
+                  height: 50,
+                  decoration: BoxDecoration(
+                    borderRadius:BorderRadius.circular(10),
+                    color: Colors.transparent,
+                  ),
+                  child: Center(
+                    child: Text(
+                      "Пирожные",style: TextStyle(color: Colors.black,fontSize: 20),
+                    ),
+                  ),
+                  ),
+               ),
+            ],
           ),
-        ],
+          Container(
+            height: 100,
+            width: 300,
+            child: ListView(
+              scrollDirection: Axis.vertical,
+              children: [
+                Container(
+                  width: 300,
+                  height: 50,
+                  decoration: BoxDecoration(
+                    borderRadius: BorderRadius.circular(10),
+                    color: Colors.white
+          
+                  ),
+                  child: Row(
+                    children: [
+                      Image.asset("images/pirog_1.png",fit: BoxFit.cover,),
+                    ],
+                  )
+                  ),
+              ],
+            ),
+          ),
+          
+        ]
       ),
-    ));
+     
+      
+    ),
+    
+    
+    );
   }
 
   Widget _buildListItem(BuildContext context, int index) {
@@ -160,3 +221,4 @@ class _Home_pageState extends State<Home_page> {
     );
   }
 }
+
