@@ -2,6 +2,7 @@ import 'dart:io';
 
 import 'package:coffe_project/Widget/utils.dart';
 import 'package:coffe_project/screens/loginin.dart';
+import 'package:coffe_project/screens/profile.dart';
 import 'package:coffe_project/screens/sigin_page.dart';
 import 'package:coffe_project/screens/signup_page.dart';
 import 'package:coffe_project/screens/product_page.dart';
@@ -16,13 +17,11 @@ import 'home_reg_widget.dart';
 class Home_page extends StatefulWidget {
   const Home_page({super.key});
 
-
   @override
   State<Home_page> createState() => _Home_pageState();
 }
 
-class _Home_pageState extends State<Home_page>  with TickerProviderStateMixin {
-  
+class _Home_pageState extends State<Home_page> with TickerProviderStateMixin {
   int indexpage = 0;
   List<Product> productList = [
     Product('images/coffee_01.png', "Kapushino", 100, 20),
@@ -30,8 +29,8 @@ class _Home_pageState extends State<Home_page>  with TickerProviderStateMixin {
     Product('images/coffee_03.png', "GelMunna", 300, 40),
   ];
   Widget build(BuildContext context) {
-    
-  final TabController _tabController = TabController(length: 2, vsync: this);
+
+    TabController _tabController = TabController(length: 2, vsync: this);
     final mediaQuery = MediaQuery.of(context).size;
     return Container(
       decoration:BoxDecoration( 
@@ -80,8 +79,57 @@ class _Home_pageState extends State<Home_page>  with TickerProviderStateMixin {
         elevation: 0,
         backgroundColor: Colors.transparent,
       ),
-      body: Column(
-        children: [
+      body: Scaffold(
+        backgroundColor: Colors.transparent,
+        appBar: AppBar(
+          leading: MaterialButton(
+              splashColor: Colors.transparent,
+              highlightColor: Colors.transparent,
+              onPressed: (
+                
+              ) {
+                showModalBottomSheet(
+                  backgroundColor: Color(0xffffffff),
+                  isScrollControlled: true,
+                  shape: const RoundedRectangleBorder(
+                      borderRadius: BorderRadius.only(
+                    topRight: Radius.circular(16),
+                    topLeft: Radius.circular(16),
+                  )),
+                  context: context,
+                  builder: (BuildContext context) {
+                    return FractionallySizedBox(
+                      heightFactor: 430 / mediaQuery.height,
+                      child: Reg_menu(),
+                    );
+                  },
+                );
+                // Navigator.pushNamed(context, '/loginin');
+              },
+              child: IconButton(
+                onPressed: (){Navigator.push(
+                  context,
+                  MaterialPageRoute(
+                      builder: (context) => MyProfile()));
+            },
+                icon : Icon(Icons.people_outline),
+                color: Colors.black,
+              )),
+          centerTitle: true,
+          title: const Text(
+            "Name",
+            style: TextStyle(color: Colors.black),
+          ),
+          actions: [
+            Icon(
+              Icons.shopping_basket_rounded,
+              color: Colors.black,
+            ),
+          ],
+          elevation: 0,
+          backgroundColor: Colors.transparent,
+        ),
+        body: Column(children: [
           SizedBox(
             height: 328,
             child: ScrollSnapList(
@@ -133,8 +181,8 @@ class _Home_pageState extends State<Home_page>  with TickerProviderStateMixin {
           Container(
             height: 100,
             width: 320,
-            child: ListView(
-              scrollDirection: Axis.vertical,
+            child: TabBarView(
+              controller: _tabController,
               children: [
                 Container(
                   width: 300,
@@ -153,15 +201,30 @@ class _Home_pageState extends State<Home_page>  with TickerProviderStateMixin {
               ],
             ),
           ),
-          
-        ]
+          SizedBox(
+            height: 30,
+          ),
+          Container(
+            padding: const EdgeInsets.all(8.0),
+            height: 100,
+            width: 300,
+            child: TabBarView(
+              controller: _tabController,
+              children: [
+                
+                Container(
+                  height: 25,
+                  width: 200,
+                  decoration: BoxDecoration(
+                    color: Colors.black12
+                  ),
+                ),
+              ],
+            ),
+          )
+        ]),
       ),
-     
-      
-    ),
-    
-    
-    );
+    ),);
   }
 
   Widget _buildListItem(BuildContext context, int index) {
@@ -172,8 +235,7 @@ class _Home_pageState extends State<Home_page>  with TickerProviderStateMixin {
       child: Card(
         elevation: 0,
         color: Colors.transparent,
-        child: ClipRRect( 
-
+        child: ClipRRect(
           borderRadius: const BorderRadius.all(Radius.circular(10)),
           child: MaterialButton(
             height: 400,
@@ -181,10 +243,12 @@ class _Home_pageState extends State<Home_page>  with TickerProviderStateMixin {
 
             elevation: 0,
             splashColor: Colors.transparent,
-            
             highlightColor: Colors.transparent,
             onPressed: () {
-              Navigator.push(context,MaterialPageRoute(builder: (context)=> Product_information(product)));
+              Navigator.push(
+                  context,
+                  MaterialPageRoute(
+                      builder: (context) => Product_information(product)));
             },
             child: Column(
               children: [
@@ -219,4 +283,3 @@ class _Home_pageState extends State<Home_page>  with TickerProviderStateMixin {
     );
   }
 }
-
