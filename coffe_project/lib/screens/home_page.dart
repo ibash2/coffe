@@ -15,13 +15,11 @@ import 'home_reg_widget.dart';
 class Home_page extends StatefulWidget {
   const Home_page({super.key});
 
-
   @override
   State<Home_page> createState() => _Home_pageState();
 }
 
-class _Home_pageState extends State<Home_page>  with TickerProviderStateMixin {
-  
+class _Home_pageState extends State<Home_page> with TickerProviderStateMixin {
   int indexpage = 0;
   List<Product> productList = [
     Product('images/coffee_01.png', "Kapushino", 100, 20),
@@ -29,58 +27,57 @@ class _Home_pageState extends State<Home_page>  with TickerProviderStateMixin {
     Product('images/coffee_03.png', "GelMunna", 300, 40),
   ];
   Widget build(BuildContext context) {
-    
-  final TabController _tabController = TabController(length: 2, vsync: this);
-    final mediaQuery = MediaQuery.of(context).size;
+
+    TabController _tabController = TabController(length: 2, vsync: this);
     return Container(
-      decoration:BoxDecoration( 
-        image: DecorationImage(fit: BoxFit.fill,image: AssetImage('images/register.png')),
-        ),
-        child: Scaffold(
-          backgroundColor: Colors.transparent,
-      appBar: AppBar(
-        leading: MaterialButton(
-            splashColor: Colors.transparent,
-            highlightColor: Colors.transparent,
-            onPressed: () {
-              showModalBottomSheet(
-                      backgroundColor: Color(0xffffffff),
-                      isScrollControlled: true,
-                      shape: const RoundedRectangleBorder(
-                          borderRadius: BorderRadius.only(
-                        topRight: Radius.circular(16),
-                        topLeft: Radius.circular(16),
-                      )),
-                      context: context,
-                      builder: (BuildContext context) {
-                        return FractionallySizedBox(
-                          heightFactor: 430/mediaQuery.height,
-                          child: Reg_menu(),
-                        );
-                      },
-                    );
-              // Navigator.pushNamed(context, '/loginin');
-            },
-            child: Icon(
-              Icons.people_outline,
-              color: Colors.black,
-            )),
-        centerTitle: true,
-        title: const Text(
-          "Name",
-          style: TextStyle(color: Colors.black),
-        ),
-        actions: [
-          Icon(
-            Icons.shopping_basket_rounded,
-            color: Colors.black,
-          ),
-        ],
-        elevation: 0,
-        backgroundColor: Colors.transparent,
+      decoration: BoxDecoration(
+        image: DecorationImage(
+            fit: BoxFit.fill, image: AssetImage('images/register.png')),
       ),
-      body: Column(
-        children: [
+      child: Scaffold(
+        backgroundColor: Colors.transparent,
+        appBar: AppBar(
+          leading: MaterialButton(
+              splashColor: Colors.transparent,
+              highlightColor: Colors.transparent,
+              onPressed: () {
+                showModalBottomSheet(
+                  backgroundColor: Color(0xffffffff),
+                  isScrollControlled: true,
+                  shape: const RoundedRectangleBorder(
+                      borderRadius: BorderRadius.only(
+                    topRight: Radius.circular(16),
+                    topLeft: Radius.circular(16),
+                  )),
+                  context: context,
+                  builder: (BuildContext context) {
+                    return FractionallySizedBox(
+                      heightFactor: 430 / mediaQuery.height,
+                      child: Reg_menu(),
+                    );
+                  },
+                );
+                // Navigator.pushNamed(context, '/loginin');
+              },
+              child: Icon(
+                Icons.people_outline,
+                color: Colors.black,
+              )),
+          centerTitle: true,
+          title: const Text(
+            "Name",
+            style: TextStyle(color: Colors.black),
+          ),
+          actions: [
+            Icon(
+              Icons.shopping_basket_rounded,
+              color: Colors.black,
+            ),
+          ],
+          elevation: 0,
+          backgroundColor: Colors.transparent,
+        ),
+        body: Column(children: [
           SizedBox(
             height: 250,
             child: ScrollSnapList(
@@ -91,75 +88,42 @@ class _Home_pageState extends State<Home_page>  with TickerProviderStateMixin {
               dynamicItemSize: true,
             ),
           ),
-          SizedBox(height: 15,),
-          Row(
-            mainAxisAlignment: MainAxisAlignment.spaceBetween,
-            children: [
-              Padding(
-                padding: const EdgeInsets.all(8.0),
-                child: Container(
-                  width: 150,
-                  height: 50,
-                  decoration: BoxDecoration(
-                    borderRadius: BorderRadius.circular(10),
-                    color: Colors.transparent,
-                  ),
-                  child: Center(
-                    child: Text(
-                      "Напитки",style: TextStyle(color: Colors.black,fontSize: 20),
-                    ),
-                  ),
-                ),
-              ),
-               Padding(
-                 padding: const EdgeInsets.all(8.0),
-                 child: Container(
-                  width: 150,
-                  height: 50,
-                  decoration: BoxDecoration(
-                    borderRadius:BorderRadius.circular(10),
-                    color: Colors.transparent,
-                  ),
-                  child: Center(
-                    child: Text(
-                      "Пирожные",style: TextStyle(color: Colors.black,fontSize: 20),
-                    ),
-                  ),
-                  ),
-               ),
-            ],
-          ),
           Container(
-            height: 100,
-            width: 300,
-            child: ListView(
-              scrollDirection: Axis.vertical,
-              children: [
-                Container(
-                  width: 300,
-                  height: 50,
-                  decoration: BoxDecoration(
-                    borderRadius: BorderRadius.circular(10),
-                    color: Colors.white
-          
-                  ),
-                  child: Row(
-                    children: [
-                      Image.asset("images/pirog_1.png",fit: BoxFit.cover,),
-                    ],
-                  )
-                  ),
+            child: TabBar(
+              controller: _tabController,
+              tabs: [
+                Tab(
+                  text: "Places",
+                ),
+                Tab(
+                  text: "Coffee",
+                ),
               ],
             ),
           ),
-          
-        ]
+          SizedBox(
+            height: 30,
+          ),
+          Container(
+            padding: const EdgeInsets.all(8.0),
+            height: 100,
+            width: 300,
+            child: TabBarView(
+              controller: _tabController,
+              children: [
+                
+                Container(
+                  height: 25,
+                  width: 200,
+                  decoration: BoxDecoration(
+                    color: Colors.black12
+                  ),
+                ),
+              ],
+            ),
+          )
+        ]),
       ),
-     
-      
-    ),
-    
-    
     );
   }
 
@@ -171,16 +135,17 @@ class _Home_pageState extends State<Home_page>  with TickerProviderStateMixin {
       child: Card(
         elevation: 0,
         color: Colors.transparent,
-        child: ClipRRect( 
-
+        child: ClipRRect(
           borderRadius: const BorderRadius.all(Radius.circular(10)),
           child: MaterialButton(
             elevation: 0,
             splashColor: Colors.transparent,
-            
             highlightColor: Colors.transparent,
             onPressed: () {
-              Navigator.push(context,MaterialPageRoute(builder: (context)=> Product_information(product)));
+              Navigator.push(
+                  context,
+                  MaterialPageRoute(
+                      builder: (context) => Product_information(product)));
             },
             child: Column(
               children: [
@@ -221,4 +186,3 @@ class _Home_pageState extends State<Home_page>  with TickerProviderStateMixin {
     );
   }
 }
-
