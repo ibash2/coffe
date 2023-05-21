@@ -1,5 +1,6 @@
 import 'dart:io';
 
+import 'package:coffe_project/Widget/utils.dart';
 import 'package:coffe_project/screens/loginin.dart';
 import 'package:coffe_project/screens/sigin_page.dart';
 import 'package:coffe_project/screens/signup_page.dart';
@@ -34,7 +35,7 @@ class _Home_pageState extends State<Home_page>  with TickerProviderStateMixin {
     final mediaQuery = MediaQuery.of(context).size;
     return Container(
       decoration:BoxDecoration( 
-        image: DecorationImage(fit: BoxFit.fill,image: AssetImage('images/register.png')),
+        image: DecorationImage(fit: BoxFit.fill,image: AssetImage('images/Frame 9.png')),
         ),
         child: Scaffold(
           backgroundColor: Colors.transparent,
@@ -54,8 +55,8 @@ class _Home_pageState extends State<Home_page>  with TickerProviderStateMixin {
                       context: context,
                       builder: (BuildContext context) {
                         return FractionallySizedBox(
-                          heightFactor: 430/mediaQuery.height,
-                          child: Reg_menu(),
+                          heightFactor: 540/mediaQuery.height,
+                          child: signin_menu(),
                         );
                       },
                     );
@@ -82,11 +83,11 @@ class _Home_pageState extends State<Home_page>  with TickerProviderStateMixin {
       body: Column(
         children: [
           SizedBox(
-            height: 250,
+            height: 328,
             child: ScrollSnapList(
               itemBuilder: _buildListItem,
               itemCount: productList.length,
-              itemSize: 150,
+              itemSize: 192,
               onItemFocus: (index) {},
               dynamicItemSize: true,
             ),
@@ -112,7 +113,7 @@ class _Home_pageState extends State<Home_page>  with TickerProviderStateMixin {
                 ),
               ),
                Padding(
-                 padding: const EdgeInsets.all(8.0),
+                 padding: const EdgeInsets.all(8),
                  child: Container(
                   width: 150,
                   height: 50,
@@ -131,7 +132,7 @@ class _Home_pageState extends State<Home_page>  with TickerProviderStateMixin {
           ),
           Container(
             height: 100,
-            width: 300,
+            width: 320,
             child: ListView(
               scrollDirection: Axis.vertical,
               children: [
@@ -166,8 +167,8 @@ class _Home_pageState extends State<Home_page>  with TickerProviderStateMixin {
   Widget _buildListItem(BuildContext context, int index) {
     Product product = productList[index];
     return SizedBox(
-      width: 175,
-      height: 300,
+      width: 200,
+      height: 400,
       child: Card(
         elevation: 0,
         color: Colors.transparent,
@@ -175,6 +176,9 @@ class _Home_pageState extends State<Home_page>  with TickerProviderStateMixin {
 
           borderRadius: const BorderRadius.all(Radius.circular(10)),
           child: MaterialButton(
+            height: 400,
+            minWidth: 320,
+
             elevation: 0,
             splashColor: Colors.transparent,
             
@@ -187,29 +191,23 @@ class _Home_pageState extends State<Home_page>  with TickerProviderStateMixin {
                 Image.asset(
                   product.imagePate,
                   fit: BoxFit.cover,
-                  width: 150,
-                  height: 180,
-                ),
-                const SizedBox(
-                  height: 10,
+                  height: 250,
+
                 ),
                 Text(
                   product.title,
-                  style: const TextStyle(fontSize: 15),
+                  style:  SafeGoogleFont('Sarala',fontWeight: FontWeight.w400,fontSize: 21),
                 ),
                 Padding(
                   padding: const EdgeInsets.symmetric(horizontal: 8),
                   child: Row(
-                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                    mainAxisAlignment: MainAxisAlignment.center,
                     children: [
                       Text(
-                        '\$${product.cost}',
-                        style: const TextStyle(fontWeight: FontWeight.bold),
+                        '${product.cost}р',
+                        style: SafeGoogleFont('Sarala',fontWeight: FontWeight.w700,fontSize: 21),
                       ),
-                      Text(
-                        '${product.reviewCount} Reviews',
-                        style: const TextStyle(color: Colors.blue),
-                      )
+                      
                     ],
                   ),
                 )

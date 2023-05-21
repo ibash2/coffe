@@ -50,6 +50,13 @@ class _signin_menuState extends State<signin_menu> {
     return 
     
     Container(
+      decoration:BoxDecoration( 
+        borderRadius: BorderRadius.circular(8),
+        image: DecorationImage(fit: BoxFit.fill,image: AssetImage('images/register.png'),
+              
+             ),
+        ),
+        child:Container(
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.center,
         children: [
@@ -64,17 +71,17 @@ class _signin_menuState extends State<signin_menu> {
           ),
           Container(
             margin: EdgeInsets.fromLTRB(20, 0, 0, 7),
-            width: double.infinity,
+            width: 240,
             child: Text(
               'Добро пожаловать',
               textAlign: TextAlign.start,
               style: SafeGoogleFont(
-                'Montserrat Alternates',
+                'Sarala',
                 fontSize: 24,
-                fontWeight: FontWeight.w500,
+                fontWeight: FontWeight.w700,
                 height: 1.2999999523,
                 letterSpacing: -0.5,
-                color: Color(0xff0a0a0a),
+                color: Colors.white,
               ),
             ),
           ),
@@ -85,12 +92,12 @@ class _signin_menuState extends State<signin_menu> {
               textAlign: TextAlign.start,
               'Мы рады видеть вас снова. Введите адрес электронной почты и пароль',
               style: SafeGoogleFont(
-                'Montserrat Alternates',
+                'Sarala',
                 fontSize: 16,
                 fontWeight: FontWeight.w400,
                 height: 1.2999999523,
                 letterSpacing: -0.5,
-                color: Color(0xff808185),
+                color: Colors.white,
               ),
             ),
           ),
@@ -117,16 +124,18 @@ class _signin_menuState extends State<signin_menu> {
                         controller: emailTextInputController,
                         obscureText: false,
                         decoration: InputDecoration(
+                          fillColor: Colors.white,
+                          filled: true,
                             hintStyle: SafeGoogleFont('Montserrat',
                                 fontSize: 16,
                                 fontWeight: FontWeight.w400,
                                 color: Color.fromRGBO(128, 129, 133, 1)),
-                            contentPadding: EdgeInsets.fromLTRB(12, 35, 0, 0),
+                            contentPadding: EdgeInsets.fromLTRB(12, 40, 0, 0),
                             border: OutlineInputBorder(
                                 borderSide: BorderSide(
                                     color: Color.fromRGBO(237, 237, 237, 1)),
                                 borderRadius:
-                                    BorderRadius.all(Radius.circular(12))),
+                                    BorderRadius.all(Radius.circular(28))),
                             hintText: 'Электронная почта'),
                       ),
                     
@@ -144,39 +153,45 @@ class _signin_menuState extends State<signin_menu> {
                     controller: passwordTextInputController,
                     obscureText: true,
                     decoration: InputDecoration(
+                      fillColor: Colors.white,
+                          filled: true,
                         hintStyle: SafeGoogleFont('Montserrat',
                             fontSize: 16,
                             fontWeight: FontWeight.w400,
                             color: Color.fromRGBO(128, 129, 133, 1)),
-                        contentPadding: EdgeInsets.fromLTRB(12, 35, 0, 0),
+                        contentPadding: EdgeInsets.fromLTRB(12, 40, 0, 0),
                         border: OutlineInputBorder(
                             borderSide: BorderSide(
                                 color: Color.fromRGBO(237, 237, 237, 1)),
                             borderRadius:
-                                BorderRadius.all(Radius.circular(12))),
+                                BorderRadius.all(Radius.circular(28))),
                         hintText: 'Пароль'),
                   ),],
                   ),),
                   SizedBox(
                     height: 12,
                   ),
-                  MaterialButton(
-                      shape: const RoundedRectangleBorder(
-                          borderRadius: BorderRadius.all(Radius.circular(12))),
-                      minWidth: double.maxFinite,
-                      height: 48,
-                      color: Color.fromRGBO(221, 244, 45, 1),
-                      onPressed: () {
-                        sigin(emailTextInputController.text,passwordTextInputController.text);
-                        ret();
-                      },
-                      child: Text(
-                        'Войти',
-                        style: SafeGoogleFont('Montserrat',
-                            fontSize: 20,
-                            fontWeight: FontWeight.w500,
-                            color: Color.fromRGBO(10, 10, 10, 1)),
-                      )),
+                  Container(
+                    width: 168,
+                    child: MaterialButton(
+                        shape: const RoundedRectangleBorder(
+                            borderRadius: BorderRadius.all(Radius.circular(28))),
+                        minWidth: double.maxFinite,
+                        height: 65,
+                        
+                        color: Color.fromRGBO(254, 177, 113, 1),
+                        onPressed: () {
+                          sigin(emailTextInputController.text,passwordTextInputController.text);
+                          ret();
+                        },
+                        child: Text(
+                          'Войти',
+                          style: SafeGoogleFont('Montserrat',
+                              fontSize: 20,
+                              fontWeight: FontWeight.w500,
+                              color: Color.fromRGBO(10, 10, 10, 1)),
+                        )),
+                  ),
                   const SizedBox(
                     width: 20,
                   ),
@@ -210,11 +225,11 @@ class _signin_menuState extends State<signin_menu> {
                       Expanded(
                         flex: 1,
                         child: Center(
-                          child: Text('or',
+                          child: Text('или',
                               style: SafeGoogleFont(
                                 'Montserrat',
                                 fontSize: 16,
-                                color: Color.fromRGBO(128, 129, 133, 1),
+                                color: Colors.white,
                                 fontWeight: FontWeight.w500
                                 
                           
@@ -241,7 +256,7 @@ class _signin_menuState extends State<signin_menu> {
                           borderRadius: BorderRadius.all(Radius.circular(12))),
                       minWidth: double.maxFinite,
                       height: 51,
-                      color: Color.fromRGBO(10, 10, 10, 1),
+                      color: Color.fromRGBO(221, 123, 229, 1),
                       onPressed: () {
                         // print(cur);
                         Navigator.pop(context, );
@@ -256,17 +271,17 @@ class _signin_menuState extends State<signin_menu> {
                       context: context,
                       builder: (BuildContext context) {
                         return const FractionallySizedBox(
-                          heightFactor: 0.748,
+                          heightFactor: 0.520,
                           child: signup_menu(),
                         );
                       },
                     );
                       },
                       child: Text(
-                        'Создать аккаунт',
-                        style: SafeGoogleFont('Montserrat',
-                            fontSize: 20,
-                            fontWeight: FontWeight.w500,
+                        'Зарегистрироваться',
+                        style: SafeGoogleFont('Sarala',
+                            fontSize: 24,
+                            fontWeight: FontWeight.w400,
                             color: Color.fromRGBO(255, 255, 255, 1)),
                       )),
                   
@@ -277,7 +292,7 @@ class _signin_menuState extends State<signin_menu> {
           ),
         ],
       ),
-    );
+    ),);
   }
 }
 

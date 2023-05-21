@@ -62,6 +62,13 @@ class _signup_menuState extends State<signup_menu> {
   @override
   Widget build(BuildContext context) {
     return Container(
+      decoration:BoxDecoration( 
+        borderRadius: BorderRadius.circular(8),
+        image: DecorationImage(fit: BoxFit.fill,image: AssetImage('images/register.png'),
+              
+             ),
+        ),
+        child:Container(
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.center,
         children: [
@@ -76,17 +83,17 @@ class _signup_menuState extends State<signup_menu> {
           ),
           Container(
             margin: EdgeInsets.fromLTRB(20, 0, 0, 7),
-            width: double.infinity,
+            width: 280,
             child: Text(
-              'Создайте ваш аккаунт',
+              'Создайте Ваш аккаунт',
               textAlign: TextAlign.start,
               style: SafeGoogleFont(
-                'Montserrat Alternates',
+                'Sarala',
                 fontSize: 24,
-                fontWeight: FontWeight.w500,
+                fontWeight: FontWeight.w700,
                 height: 1.2999999523,
                 letterSpacing: -0.5,
-                color: Color(0xff0a0a0a),
+                color: Colors.white,
               ),
             ),
           ),
@@ -94,15 +101,15 @@ class _signup_menuState extends State<signup_menu> {
             margin: EdgeInsets.fromLTRB(20, 0, 20, 24),
             width: double.infinity,
             child: Text(
-              textAlign: TextAlign.start,
+              textAlign: TextAlign.center,
               'Cоздайте свою учетную запись, это займет меньше минуты. Введите свой адрес электронной почты и пароль',
               style: SafeGoogleFont(
-                'Montserrat Alternates',
+                'Sarala',
                 fontSize: 16,
                 fontWeight: FontWeight.w400,
                 height: 1.2999999523,
                 letterSpacing: -0.5,
-                color: Color(0xff808185),
+                color: Colors.white,
               ),
             ),
           ),
@@ -125,16 +132,18 @@ class _signup_menuState extends State<signup_menu> {
                         onChanged: (value) {},
                         obscureText: false,
                         decoration: InputDecoration(
+                          fillColor: Colors.white,
+                          filled: true,
                             hintStyle: SafeGoogleFont('Montserrat',
                                 fontSize: 16,
                                 fontWeight: FontWeight.w400,
                                 color: Color.fromRGBO(128, 129, 133, 1)),
-                            contentPadding: EdgeInsets.fromLTRB(12, 35, 0, 0),
+                            contentPadding: EdgeInsets.fromLTRB(12, 40, 0, 0),
                             border: OutlineInputBorder(
                                 borderSide: BorderSide(
                                     color: Color.fromRGBO(237, 237, 237, 1)),
                                 borderRadius:
-                                    BorderRadius.all(Radius.circular(12))),
+                                    BorderRadius.all(Radius.circular(28))),
                             hintText: 'Электронная почта'),
                       ),
                     
@@ -151,151 +160,52 @@ class _signup_menuState extends State<signup_menu> {
                     onChanged: (value) {},
                     obscureText: true,
                     decoration: InputDecoration(
+                      fillColor: Colors.white,
+                          filled: true,
                         hintStyle: SafeGoogleFont('Montserrat',
                             fontSize: 16,
                             fontWeight: FontWeight.w400,
                             color: Color.fromRGBO(128, 129, 133, 1)),
-                        contentPadding: EdgeInsets.fromLTRB(12, 35, 0, 0),
+                        contentPadding: EdgeInsets.fromLTRB(12, 40, 0, 0),
                         border: OutlineInputBorder(
                             borderSide: BorderSide(
                                 color: Color.fromRGBO(237, 237, 237, 1)),
                             borderRadius:
-                                BorderRadius.all(Radius.circular(12))),
+                                BorderRadius.all(Radius.circular(28))),
                         hintText: 'Пароль'),
                   ),],
                   ),),
                   SizedBox(
                     height: 12,
                   ),
-                  MaterialButton(
-                      shape: const RoundedRectangleBorder(
-                          borderRadius: BorderRadius.all(Radius.circular(12))),
-                      minWidth: double.maxFinite,
-                      height: 48,
-                      color: Color.fromRGBO(221, 244, 45, 1),
-                      onPressed: signUp,
-                      child: Text(
-                        'Создать',
-                        style: SafeGoogleFont('Montserrat',
-                            fontSize: 20,
-                            fontWeight: FontWeight.w500,
-                            color: Color.fromRGBO(10, 10, 10, 1)),
-                      )),
-                  const SizedBox(
-                    height: 25,
-                  ),
-                  Row(
-                    children: [
-                      Expanded(
-                        flex: 3,
-                        child: Container(
-                          width: 160,
-                          child: const Divider(
-                            height: 2,
-                            thickness: 2,
-                            color: Color.fromRGBO(237, 237, 237, 1),
-                          ),
-                        ),
-                      ),
-                      Expanded(
-                        flex: 1,
-                        child: Center(
-                          child: Text('or',
-                              style: SafeGoogleFont('Montserrat',
-                                  fontSize: 16,
-                                  color: Color.fromRGBO(128, 129, 133, 1),
-                                  fontWeight: FontWeight.w500)),
-                        ),
-                      ),
-                      Expanded(
-                        flex: 3,
-                        child: Container(
-                          width: 160,
-                          child: const Divider(
-                            height: 2,
-                            thickness: 2,
-                            color: Color.fromRGBO(237, 237, 237, 1),
-                          ),
-                        ),
-                      ),
-                    ],
+                  Container(
+                    width: 145,
+                    child: MaterialButton(
+                        shape: const RoundedRectangleBorder(
+                            borderRadius: BorderRadius.all(Radius.circular(28))),
+                        minWidth: double.maxFinite,
+                        height: 70,
+                        color: Color.fromRGBO(254, 177, 113, 1),
+                        onPressed: signUp,
+                        child: Text(
+                          'Создать',
+                          style: SafeGoogleFont('Montserrat',
+                              fontSize: 20,
+                              fontWeight: FontWeight.w500,
+                              color: Color.fromRGBO(10, 10, 10, 1)),
+                        )),
                   ),
                   const SizedBox(
                     height: 25,
                   ),
-                  MaterialButton(
-                      shape: const RoundedRectangleBorder(
-                          borderRadius: BorderRadius.all(Radius.circular(12))),
-                      minWidth: double.maxFinite,
-                      height: 48,
-                      color: Color.fromRGBO(10, 10, 10, 1),
-                      onPressed: () {},
-                      child: Row(
-                        mainAxisAlignment: MainAxisAlignment.center,
-                        children: [
-                          
-                          Text(
-                            'Continue with Google',
-                            style: SafeGoogleFont('Montserrat',
-                                fontSize: 20,
-                                fontWeight: FontWeight.w500,
-                                color: Color.fromRGBO(255, 255, 255, 1)),
-                          ),
-                        ],
-                      )),
-                  const SizedBox(
-                    height: 16,
-                  ),
-                  MaterialButton(
-                      shape: const RoundedRectangleBorder(
-                          borderRadius: BorderRadius.all(Radius.circular(12))),
-                      minWidth: double.maxFinite,
-                      height: 48,
-                      color: Color.fromRGBO(10, 10, 10, 1),
-                      onPressed: () {},
-                      child: Row(
-                        mainAxisAlignment: MainAxisAlignment.center,
-                        children: [
-                          
-                          Text(
-                            'Continue with Apple',
-                            style: SafeGoogleFont('Montserrat',
-                                fontSize: 20,
-                                fontWeight: FontWeight.w500,
-                                color: Color.fromRGBO(255, 255, 255, 1)),
-                          ),
-                        ],
-                      )),
-                  const SizedBox(
-                    height: 16,
-                  ),
-                  MaterialButton(
-                      shape: const RoundedRectangleBorder(
-                          borderRadius: BorderRadius.all(Radius.circular(12))),
-                      minWidth: double.maxFinite,
-                      height: 48,
-                      color: Color.fromRGBO(10, 10, 10, 1),
-                      onPressed: () {},
-                      child: Row(
-                        mainAxisAlignment: MainAxisAlignment.center,
-                        children: [
-                          
-                          Text(
-                            'Continue with Facebook',
-                            style: SafeGoogleFont('Montserrat',
-                                fontSize: 20,
-                                fontWeight: FontWeight.w500,
-                                color: Color.fromRGBO(255, 255, 255, 1)),
-                          ),
-                        ],
-                      )),
+                  
                 ],
               ),
             ),
           ),
         ],
       ),
-    );
+    ),);
   }
 }
 

@@ -13,6 +13,11 @@ class Reg_menu extends StatelessWidget {
   Widget build(BuildContext context) {
     final mediaQuery = MediaQuery.of(context).size;
     return Container(
+      decoration:BoxDecoration( 
+        image: DecorationImage(fit: BoxFit.fill,image: AssetImage('images/register.png')),
+        ),
+        
+      child:Container(
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.center,
         children: [
@@ -60,7 +65,7 @@ class Reg_menu extends StatelessWidget {
                           context: context,
                           builder: (BuildContext context) {
                             return FractionallySizedBox(
-                              heightFactor: 0.650,
+                              heightFactor: 0.670,
                               child: signin_menu(),
                             );
                           },
@@ -95,7 +100,7 @@ class Reg_menu extends StatelessWidget {
                           context: context,
                           builder: (BuildContext context) {
                             return const FractionallySizedBox(
-                              heightFactor: 0.748,
+                              heightFactor: 0.52,
                               child: signup_menu(),
                             );
                           },
@@ -114,6 +119,6 @@ class Reg_menu extends StatelessWidget {
           ),
         ],
       ),
-    );
+    ),);
   }
 }
