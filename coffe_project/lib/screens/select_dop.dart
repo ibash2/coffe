@@ -1,5 +1,6 @@
 import 'package:coffe_project/Widget/product.dart';
 import 'package:coffe_project/Widget/utils.dart';
+import 'package:coffe_project/screens/sigin_page.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_xlider/flutter_xlider.dart';
 import '../Widget/product.dart';
@@ -44,7 +45,22 @@ class _Select_dopState extends State<Select_dop> {
                 fontSize: 22, fontWeight: FontWeight.w700),
           ),
           leading: MaterialButton(
-            onPressed: () {},
+            onPressed: () {showModalBottomSheet(
+                  backgroundColor: Color(0xffffffff),
+                  isScrollControlled: true,
+                  shape: const RoundedRectangleBorder(
+                      borderRadius: BorderRadius.only(
+                    topRight: Radius.circular(16),
+                    topLeft: Radius.circular(16),
+                  )),
+                  context: context,
+                  builder: (BuildContext context) {
+                    return FractionallySizedBox(
+                      heightFactor: 550 / mediaQuery.height,
+                      child: signin_menu(),
+                    );
+                  },
+                );},
             child: Image.asset('images/profil.png', height: 18),
           ),
           actions: [
@@ -149,7 +165,7 @@ class _Select_dopState extends State<Select_dop> {
                                                   ),
                                                   handlerHeight: 35,
                                                   handlerWidth: 35,
-                                                  rtl: true,
+                                                 
                                               
                                                   trackBar: const FlutterSliderTrackBar(
                                                       activeTrackBarHeight: 10,
@@ -202,6 +218,7 @@ class _Select_dopState extends State<Select_dop> {
                                             ),
                                           ),
                                         ),
+                                        SizedBox(height: 5,),
                                         Container(
                                           width: 180,
                                           child: ExpansionTile(
@@ -226,7 +243,7 @@ class _Select_dopState extends State<Select_dop> {
                                                     ),
                                                     handlerHeight: 35,
                                                     handlerWidth: 35,
-                                                    rtl: true,
+                                                    
                                                   
                                                     trackBar: const FlutterSliderTrackBar(
                                                         activeTrackBarHeight: 10,
@@ -278,6 +295,7 @@ class _Select_dopState extends State<Select_dop> {
                                                 ],
                                               )),
                                         ),
+                                        SizedBox(height: 5,),
                                         Container(
                                           width: 150,
                                           child: ExpansionTile(
@@ -300,7 +318,7 @@ class _Select_dopState extends State<Select_dop> {
                                                     ),
                                                     handlerHeight: 35,
                                                     handlerWidth: 35,
-                                                    rtl: true,
+                                                   
                                                     
                                                     trackBar: const FlutterSliderTrackBar(
                                                         activeTrackBarHeight: 10,
@@ -342,7 +360,7 @@ class _Select_dopState extends State<Select_dop> {
                                                         fontWeight: FontWeight.w700),
                                                   ),
                                                   Text(
-                                                    '1  порция',
+                                                    '1/2 чашки ',
                                                     style: TextStyle(
                                                         color: Color.fromRGBO(
                                                             133, 133, 133, 1),
@@ -352,8 +370,9 @@ class _Select_dopState extends State<Select_dop> {
                                                 ],
                                               )),
                                         ),
+                                        SizedBox(height: 5,),
                                         Container(
-                                          width: 150,
+                                          width: 180,
                                           child: ExpansionTile(
                                               children: [
                                                 Container(
@@ -374,7 +393,7 @@ class _Select_dopState extends State<Select_dop> {
                                                     ),
                                                     handlerHeight: 35,
                                                     handlerWidth: 35,
-                                                    rtl: true,
+                                                    
                                                     
                                                     trackBar: const FlutterSliderTrackBar(
                                                         activeTrackBarHeight: 10,
@@ -416,7 +435,7 @@ class _Select_dopState extends State<Select_dop> {
                                                         fontWeight: FontWeight.w700),
                                                   ),
                                                   Text(
-                                                    '1  порция',
+                                                    '1  ст ложка',
                                                     style: TextStyle(
                                                         color: Color.fromRGBO(
                                                             133, 133, 133, 1),

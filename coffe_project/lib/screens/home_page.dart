@@ -13,39 +13,56 @@ import 'package:scroll_snap_list/scroll_snap_list.dart';
 import '../Widget/product.dart';
 import 'home_reg_widget.dart';
 
+int cot = 0;
+gt(cot){
+  if (cot == 1){
+    return kof();
+  }
+  else{
+    return Pon();
+  }
+ }
+
+
 // ignore: camel_case_types
 class Home_page extends StatefulWidget {
   const Home_page({super.key});
-
+  
   @override
   State<Home_page> createState() => _Home_pageState();
 }
 
 class _Home_pageState extends State<Home_page> with TickerProviderStateMixin {
   int indexpage = 0;
+
+ Color k = Colors.white;
+ Color g = Colors.white;
+ var h;
+ 
+
+
   List<Product> productList = [
     Product('images/coffee_01.png', "Kapushino", 100, 20),
     Product('images/coffee_02.png', "Nigo", 200, 30),
     Product('images/coffee_03.png', "GelMunna", 300, 40),
   ];
   Widget build(BuildContext context) {
+   
 
     TabController _tabController = TabController(length: 2, vsync: this);
     final mediaQuery = MediaQuery.of(context).size;
     return Container(
-      decoration:BoxDecoration( 
-        image: DecorationImage(fit: BoxFit.fill,image: AssetImage('images/Frame 9.png')),
-        ),
-        child: Scaffold(
+      decoration: BoxDecoration(
+        image: DecorationImage(
+            fit: BoxFit.fill, image: AssetImage('images/Frame 9.png')),
+      ),
+      child: Scaffold(
         backgroundColor: Colors.transparent,
         appBar: AppBar(
           leading: MaterialButton(
               splashColor: Colors.transparent,
               highlightColor: Colors.transparent,
-              onPressed: (
-                
-              ) {
-               
+              onPressed: () {
                 showModalBottomSheet(
                   backgroundColor: Color(0xffffffff),
                   isScrollControlled: true,
@@ -62,18 +79,24 @@ class _Home_pageState extends State<Home_page> with TickerProviderStateMixin {
                     );
                   },
                 );
-                // Navigator.pushNamed(context, '/loginin');
               },
-              child: Image.asset('images/profil.png',height: 18,)),
+              child: Image.asset(
+                'images/profil.png',
+                height: 18,
+              )),
           centerTitle: true,
-          title: const Text(
-            "Name",
-            style: TextStyle(color: Colors.black),
+          title: Text(
+            "ESPRESSWAY",
+            style: SafeGoogleFont('SF Pro Display',
+                color: Colors.black, fontSize: 22, fontWeight: FontWeight.w700),
           ),
           actions: [
             Padding(
               padding: const EdgeInsets.only(right: 10),
-              child: Image.asset('images/corz.png',width: 21,),
+              child: Image.asset(
+                'images/corz.png',
+                width: 21,
+              ),
             )
           ],
           elevation: 0,
@@ -90,6 +113,65 @@ class _Home_pageState extends State<Home_page> with TickerProviderStateMixin {
               dynamicItemSize: true,
             ),
           ),
+          Row(
+            mainAxisAlignment: MainAxisAlignment.center,
+            children: [
+              MaterialButton(
+                onPressed: () {
+                  cot = 1;
+                  if (cot == 1){
+                    k = Color.fromRGBO(255, 156, 72, 1);
+                    g = Colors.white;
+                    
+                    
+                  }
+                  setState(() {gt(cot);
+                  });
+          
+                },
+                minWidth: 150,
+                height: 55,
+                shape: const RoundedRectangleBorder(
+                    borderRadius: BorderRadius.all(Radius.circular(28))),
+                color: k,
+                child: Text(
+                  'Напитки',
+                  style: SafeGoogleFont('Sarala',
+                      fontSize: 20, fontWeight: FontWeight.w700,color: g),
+                ),
+              ),
+              SizedBox(width: 32,),
+              MaterialButton(
+                onPressed: () {
+                  cot = 0;
+                  if (cot  == 0){
+                      k = Colors.white;
+                      g = Color.fromRGBO(255, 156, 72, 1);
+                      
+                      
+                  }
+                  setState(() {gt(cot);
+                  });
+          
+                },
+                minWidth: 150,
+                height: 55,
+                shape: const RoundedRectangleBorder(
+                    borderRadius: BorderRadius.all(Radius.circular(28))),
+                color: g,
+                child: Text(
+                  'Пончики',
+                  style: SafeGoogleFont('Sarala',
+                      fontSize: 20, fontWeight: FontWeight.w700,
+                      color: k),
+                ),
+              ),
+              
+             
+              
+            ],
+          ),
+         gt(cot),
         ]),
       ),
     );
@@ -108,7 +190,6 @@ class _Home_pageState extends State<Home_page> with TickerProviderStateMixin {
           child: MaterialButton(
             height: 400,
             minWidth: 320,
-
             elevation: 0,
             splashColor: Colors.transparent,
             highlightColor: Colors.transparent,
@@ -124,11 +205,11 @@ class _Home_pageState extends State<Home_page> with TickerProviderStateMixin {
                   product.imagePate,
                   fit: BoxFit.cover,
                   height: 250,
-
                 ),
                 Text(
                   product.title,
-                  style:  SafeGoogleFont('Sarala',fontWeight: FontWeight.w400,fontSize: 21),
+                  style: SafeGoogleFont('Sarala',
+                      fontWeight: FontWeight.w400, fontSize: 21),
                 ),
                 Padding(
                   padding: const EdgeInsets.symmetric(horizontal: 8),
@@ -137,16 +218,84 @@ class _Home_pageState extends State<Home_page> with TickerProviderStateMixin {
                     children: [
                       Text(
                         '${product.cost}р',
-                        style: SafeGoogleFont('Sarala',fontWeight: FontWeight.w700,fontSize: 21),
+                        style: SafeGoogleFont('Sarala',
+                            fontWeight: FontWeight.w700, fontSize: 21),
                       ),
-                      
                     ],
                   ),
-                )
+                ),
               ],
             ),
           ),
         ),
+      ),
+    );
+  }
+}
+
+class Pon extends StatelessWidget {
+  const Pon({super.key});
+
+  @override
+  Widget build(BuildContext context) {
+    return  Padding(
+      padding: const EdgeInsets.only(top:20,left: 20,right: 20),
+      child: Container(
+      
+        child: Column(children: [
+          Container(
+            height: 50,
+            color: Colors.orange,
+          ),
+          Container(
+            height: 50,
+            color: Colors.orange,
+          ),
+          Container(
+            height: 50,
+            color: Colors.orange,
+          ),
+          Container(
+            height: 50,
+            color: Colors.orange,
+          ),
+          
+        ]),
+    
+      ),
+    );
+  }
+}
+
+class kof extends StatelessWidget {
+  const kof({super.key});
+
+  @override
+  Widget build(BuildContext context) {
+    return  Padding(
+      padding: const EdgeInsets.only(top:20,left: 20,right: 20),
+      child: Container(
+      
+        child: Column(children: [
+          Container(
+            height: 50,
+            color: Colors.black,
+          ),
+          Container(
+            height: 50,
+            color: Colors.orange,
+          ),
+          Container(
+            height: 50,
+            color: Colors.orange,
+          ),
+          Container(
+            height: 50,
+            color: Colors.orange,
+          ),
+          
+        ]),
+    
       ),
     );
   }

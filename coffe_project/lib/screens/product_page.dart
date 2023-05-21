@@ -1,6 +1,7 @@
 import 'package:coffe_project/Widget/product.dart';
 import 'package:coffe_project/Widget/utils.dart';
 import 'package:coffe_project/screens/select_dop.dart';
+import 'package:coffe_project/screens/sigin_page.dart';
 import 'package:flutter/material.dart';
 
 import '../Widget/product.dart';
@@ -48,7 +49,24 @@ class _Product_informationState extends State<Product_information> {
                 fontSize: 22, fontWeight: FontWeight.w700),
           ),
           leading: MaterialButton(
-            onPressed: () {},
+            onPressed: () {
+              showModalBottomSheet(
+                  backgroundColor: Color(0xffffffff),
+                  isScrollControlled: true,
+                  shape: const RoundedRectangleBorder(
+                      borderRadius: BorderRadius.only(
+                    topRight: Radius.circular(16),
+                    topLeft: Radius.circular(16),
+                  )),
+                  context: context,
+                  builder: (BuildContext context) {
+                    return FractionallySizedBox(
+                      heightFactor: 550 / mediaQuery.height,
+                      child: signin_menu(),
+                    );
+                  },
+                );
+            },
             child: Image.asset('images/profil.png', height: 18),
           ),
           actions: [
@@ -140,7 +158,7 @@ class _Product_informationState extends State<Product_information> {
                                     setState(() {
                                       
                                     });
-                                    counter();
+                                    cout -=1;
                                   },
                                   splashColor: Colors.transparent,
                                   highlightColor: Colors.transparent,
