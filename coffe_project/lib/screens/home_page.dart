@@ -1,5 +1,6 @@
 import 'dart:io';
 
+import 'package:coffe_project/Widget/utils.dart';
 import 'package:coffe_project/screens/loginin.dart';
 import 'package:coffe_project/screens/profile.dart';
 import 'package:coffe_project/screens/sigin_page.dart';
@@ -32,11 +33,10 @@ class _Home_pageState extends State<Home_page> with TickerProviderStateMixin {
     TabController _tabController = TabController(length: 2, vsync: this);
     final mediaQuery = MediaQuery.of(context).size;
     return Container(
-      decoration: BoxDecoration(
-        image: DecorationImage(
-            fit: BoxFit.fill, image: AssetImage('images/register.png')),
-      ),
-      child: Scaffold(
+      decoration:BoxDecoration( 
+        image: DecorationImage(fit: BoxFit.fill,image: AssetImage('images/Frame 9.png')),
+        ),
+        child: Scaffold(
         backgroundColor: Colors.transparent,
         appBar: AppBar(
           leading: MaterialButton(
@@ -45,6 +45,7 @@ class _Home_pageState extends State<Home_page> with TickerProviderStateMixin {
               onPressed: (
                 
               ) {
+               
                 showModalBottomSheet(
                   backgroundColor: Color(0xffffffff),
                   isScrollControlled: true,
@@ -56,81 +57,39 @@ class _Home_pageState extends State<Home_page> with TickerProviderStateMixin {
                   context: context,
                   builder: (BuildContext context) {
                     return FractionallySizedBox(
-                      heightFactor: 430 / mediaQuery.height,
-                      child: Reg_menu(),
+                      heightFactor: 550 / mediaQuery.height,
+                      child: signin_menu(),
                     );
                   },
                 );
                 // Navigator.pushNamed(context, '/loginin');
               },
-              child: IconButton(
-                onPressed: (){Navigator.push(
-                  context,
-                  MaterialPageRoute(
-                      builder: (context) => MyProfile()));
-            },
-                icon : Icon(Icons.people_outline),
-                color: Colors.black,
-              )),
+              child: Image.asset('images/profil.png',height: 18,)),
           centerTitle: true,
           title: const Text(
             "Name",
             style: TextStyle(color: Colors.black),
           ),
           actions: [
-            Icon(
-              Icons.shopping_basket_rounded,
-              color: Colors.black,
-            ),
+            Padding(
+              padding: const EdgeInsets.only(right: 10),
+              child: Image.asset('images/corz.png',width: 21,),
+            )
           ],
           elevation: 0,
           backgroundColor: Colors.transparent,
         ),
         body: Column(children: [
           SizedBox(
-            height: 250,
+            height: 328,
             child: ScrollSnapList(
               itemBuilder: _buildListItem,
               itemCount: productList.length,
-              itemSize: 150,
+              itemSize: 192,
               onItemFocus: (index) {},
               dynamicItemSize: true,
             ),
           ),
-          Container(
-            child: TabBar(
-              controller: _tabController,
-              tabs: [
-                Tab(
-                  text: "Places",
-                ),
-                Tab(
-                  text: "Coffee",
-                ),
-              ],
-            ),
-          ),
-          SizedBox(
-            height: 30,
-          ),
-          Container(
-            padding: const EdgeInsets.all(8.0),
-            height: 100,
-            width: 300,
-            child: TabBarView(
-              controller: _tabController,
-              children: [
-                
-                Container(
-                  height: 25,
-                  width: 200,
-                  decoration: BoxDecoration(
-                    color: Colors.black12
-                  ),
-                ),
-              ],
-            ),
-          )
         ]),
       ),
     );
@@ -139,14 +98,17 @@ class _Home_pageState extends State<Home_page> with TickerProviderStateMixin {
   Widget _buildListItem(BuildContext context, int index) {
     Product product = productList[index];
     return SizedBox(
-      width: 175,
-      height: 300,
+      width: 200,
+      height: 400,
       child: Card(
         elevation: 0,
         color: Colors.transparent,
         child: ClipRRect(
           borderRadius: const BorderRadius.all(Radius.circular(10)),
           child: MaterialButton(
+            height: 400,
+            minWidth: 320,
+
             elevation: 0,
             splashColor: Colors.transparent,
             highlightColor: Colors.transparent,
@@ -161,29 +123,23 @@ class _Home_pageState extends State<Home_page> with TickerProviderStateMixin {
                 Image.asset(
                   product.imagePate,
                   fit: BoxFit.cover,
-                  width: 150,
-                  height: 180,
-                ),
-                const SizedBox(
-                  height: 10,
+                  height: 250,
+
                 ),
                 Text(
                   product.title,
-                  style: const TextStyle(fontSize: 15),
+                  style:  SafeGoogleFont('Sarala',fontWeight: FontWeight.w400,fontSize: 21),
                 ),
                 Padding(
                   padding: const EdgeInsets.symmetric(horizontal: 8),
                   child: Row(
-                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                    mainAxisAlignment: MainAxisAlignment.center,
                     children: [
                       Text(
-                        '\$${product.cost}',
-                        style: const TextStyle(fontWeight: FontWeight.bold),
+                        '${product.cost}р',
+                        style: SafeGoogleFont('Sarala',fontWeight: FontWeight.w700,fontSize: 21),
                       ),
-                      Text(
-                        '${product.reviewCount} Reviews',
-                        style: const TextStyle(color: Colors.blue),
-                      )
+                      
                     ],
                   ),
                 )
