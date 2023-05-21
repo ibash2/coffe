@@ -37,49 +37,6 @@ class _Home_pageState extends State<Home_page> with TickerProviderStateMixin {
         image: DecorationImage(fit: BoxFit.fill,image: AssetImage('images/Frame 9.png')),
         ),
         child: Scaffold(
-          backgroundColor: Colors.transparent,
-      appBar: AppBar(
-        leading: MaterialButton(
-            splashColor: Colors.transparent,
-            highlightColor: Colors.transparent,
-            onPressed: () {
-              showModalBottomSheet(
-                      backgroundColor: Color(0xffffffff),
-                      isScrollControlled: true,
-                      shape: const RoundedRectangleBorder(
-                          borderRadius: BorderRadius.only(
-                        topRight: Radius.circular(16),
-                        topLeft: Radius.circular(16),
-                      )),
-                      context: context,
-                      builder: (BuildContext context) {
-                        return FractionallySizedBox(
-                          heightFactor: 540/mediaQuery.height,
-                          child: signin_menu(),
-                        );
-                      },
-                    );
-              // Navigator.pushNamed(context, '/loginin');
-            },
-            child: Icon(
-              Icons.people_outline,
-              color: Colors.black,
-            )),
-        centerTitle: true,
-        title: const Text(
-          "Name",
-          style: TextStyle(color: Colors.black),
-        ),
-        actions: [
-          Icon(
-            Icons.shopping_basket_rounded,
-            color: Colors.black,
-          ),
-        ],
-        elevation: 0,
-        backgroundColor: Colors.transparent,
-      ),
-      body: Scaffold(
         backgroundColor: Colors.transparent,
         appBar: AppBar(
           leading: MaterialButton(
@@ -88,6 +45,7 @@ class _Home_pageState extends State<Home_page> with TickerProviderStateMixin {
               onPressed: (
                 
               ) {
+               
                 showModalBottomSheet(
                   backgroundColor: Color(0xffffffff),
                   isScrollControlled: true,
@@ -99,32 +57,24 @@ class _Home_pageState extends State<Home_page> with TickerProviderStateMixin {
                   context: context,
                   builder: (BuildContext context) {
                     return FractionallySizedBox(
-                      heightFactor: 430 / mediaQuery.height,
-                      child: Reg_menu(),
+                      heightFactor: 550 / mediaQuery.height,
+                      child: signin_menu(),
                     );
                   },
                 );
                 // Navigator.pushNamed(context, '/loginin');
               },
-              child: IconButton(
-                onPressed: (){Navigator.push(
-                  context,
-                  MaterialPageRoute(
-                      builder: (context) => MyProfile()));
-            },
-                icon : Icon(Icons.people_outline),
-                color: Colors.black,
-              )),
+              child: Image.asset('images/profil.png',height: 18,)),
           centerTitle: true,
           title: const Text(
             "Name",
             style: TextStyle(color: Colors.black),
           ),
           actions: [
-            Icon(
-              Icons.shopping_basket_rounded,
-              color: Colors.black,
-            ),
+            Padding(
+              padding: const EdgeInsets.only(right: 10),
+              child: Image.asset('images/corz.png',width: 21,),
+            )
           ],
           elevation: 0,
           backgroundColor: Colors.transparent,
@@ -140,91 +90,9 @@ class _Home_pageState extends State<Home_page> with TickerProviderStateMixin {
               dynamicItemSize: true,
             ),
           ),
-          SizedBox(height: 15,),
-          Row(
-            mainAxisAlignment: MainAxisAlignment.spaceBetween,
-            children: [
-              Padding(
-                padding: const EdgeInsets.all(8.0),
-                child: Container(
-                  width: 150,
-                  height: 50,
-                  decoration: BoxDecoration(
-                    borderRadius: BorderRadius.circular(10),
-                    color: Colors.transparent,
-                  ),
-                  child: Center(
-                    child: Text(
-                      "Напитки",style: TextStyle(color: Colors.black,fontSize: 20),
-                    ),
-                  ),
-                ),
-              ),
-               Padding(
-                 padding: const EdgeInsets.all(8),
-                 child: Container(
-                  width: 150,
-                  height: 50,
-                  decoration: BoxDecoration(
-                    borderRadius:BorderRadius.circular(10),
-                    color: Colors.transparent,
-                  ),
-                  child: Center(
-                    child: Text(
-                      "Пирожные",style: TextStyle(color: Colors.black,fontSize: 20),
-                    ),
-                  ),
-                  ),
-               ),
-            ],
-          ),
-          Container(
-            height: 100,
-            width: 320,
-            child: TabBarView(
-              controller: _tabController,
-              children: [
-                Container(
-                  width: 300,
-                  height: 50,
-                  decoration: BoxDecoration(
-                    borderRadius: BorderRadius.circular(10),
-                    color: Colors.white
-          
-                  ),
-                  child: Row(
-                    children: [
-                      Image.asset("images/pirog_1.png",fit: BoxFit.cover,),
-                    ],
-                  )
-                  ),
-              ],
-            ),
-          ),
-          SizedBox(
-            height: 30,
-          ),
-          Container(
-            padding: const EdgeInsets.all(8.0),
-            height: 100,
-            width: 300,
-            child: TabBarView(
-              controller: _tabController,
-              children: [
-                
-                Container(
-                  height: 25,
-                  width: 200,
-                  decoration: BoxDecoration(
-                    color: Colors.black12
-                  ),
-                ),
-              ],
-            ),
-          )
         ]),
       ),
-    ),);
+    );
   }
 
   Widget _buildListItem(BuildContext context, int index) {
