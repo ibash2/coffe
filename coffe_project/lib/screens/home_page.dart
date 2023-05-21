@@ -93,6 +93,8 @@ class _Home_pageState extends State<Home_page> with TickerProviderStateMixin {
           ),
           actions: [
             MaterialButton(
+              splashColor: Colors.transparent,
+                  highlightColor: Colors.transparent,
               onPressed: (){
                 Navigator.push(context, MaterialPageRoute(builder:(context) => MyBasket() ));
               },

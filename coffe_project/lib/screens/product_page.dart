@@ -7,6 +7,7 @@ import 'package:flutter/material.dart';
 import '../Widget/product.dart';
 import '../Widget/product.dart';
 import '../Widget/product.dart';
+import 'basket_page.dart';
 import 'home_reg_widget.dart';
 
 class Product_information extends StatefulWidget {
@@ -49,6 +50,8 @@ class _Product_informationState extends State<Product_information> {
                 fontSize: 22, fontWeight: FontWeight.w700),
           ),
           leading: MaterialButton(
+            splashColor: Colors.transparent,
+                  highlightColor: Colors.transparent,
             onPressed: () {
               Navigator.push(context, MaterialPageRoute(builder:(context) => MyProfile()));
               // showModalBottomSheet(
@@ -72,8 +75,10 @@ class _Product_informationState extends State<Product_information> {
           ),
           actions: [
             MaterialButton(
+              splashColor: Colors.transparent,
+                  highlightColor: Colors.transparent,
               minWidth: 20,
-              onPressed: () {},
+              onPressed: () { Navigator.push(context, MaterialPageRoute(builder:(context) => MyBasket() ));},
               child: Image.asset('images/corz.png', height: 21),
             ),
           ],

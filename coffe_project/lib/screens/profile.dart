@@ -2,8 +2,10 @@ import 'dart:io';
 
 import 'package:coffe_project/Widget/utils.dart';
 import 'package:coffe_project/screens/adress_page.dart';
+import 'package:coffe_project/screens/home_page.dart';
 import 'package:coffe_project/screens/kupons_page.dart';
 import 'package:coffe_project/screens/setting_page.dart';
+import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 
 import 'orders_screen.dart';
@@ -14,6 +16,8 @@ class MyProfile extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    var user = FirebaseAuth.instance.currentUser;
+    print(user?.email);
     return Container(
       decoration: BoxDecoration(
         image: DecorationImage(
@@ -39,7 +43,7 @@ class MyProfile extends StatelessWidget {
                 width: 125,
                 child: TextField(
                   decoration: InputDecoration(border:OutlineInputBorder(borderSide: BorderSide.none),
-                    hintText: "Ваше Имя",
+                    hintText: "${user?.email}",
                     hintStyle: SafeGoogleFont('SF Pro Display',
                       color: Colors.black,
                       fontSize: 23,
@@ -55,7 +59,7 @@ class MyProfile extends StatelessWidget {
             elevation: 0,
             shape: OutlineInputBorder(borderSide: BorderSide(color: Colors.transparent), borderRadius: BorderRadius.only(bottomLeft: Radius.circular(45),bottomRight: Radius.circular(45))),
           leading: IconButton(onPressed: () {
-            Navigator.pop(context);
+            Navigator.push(context,MaterialPageRoute(builder:(context) => Home_page(),));
             
           },
           icon: Icon(Icons.arrow_back),color: Colors.black,),

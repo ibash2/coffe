@@ -1,3 +1,4 @@
+import 'package:coffe_project/screens/profile.dart';
 import 'package:coffe_project/screens/signup_page.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
@@ -22,7 +23,7 @@ class FirebaseStream extends StatelessWidget {
           }
           return  Home_page();
         } else {
-          return  Home_page();
+          return  MyProfile();
         }
       },
     );
