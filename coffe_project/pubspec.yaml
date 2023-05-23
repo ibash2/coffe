@@ -93,6 +93,11 @@ flutter:
    - images/Rectangle 3.png
    - images/Rectangle 3 (1).png
    - images/Rectangle 3 (2).png 
+   - images/Unknown 6.png
+   - images/Unknown 5.png
+   - images/Unknown 7.png
+   - images/Unknown 4.png
+   - images/Unknown-8 1.png
   # An image asset can refer to one or more resolution-specific "variants", see
   # https://flutter.dev/assets-and-images/#resolution-aware
 

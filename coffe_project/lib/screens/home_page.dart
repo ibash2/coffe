@@ -43,12 +43,17 @@ class _Home_pageState extends State<Home_page> with TickerProviderStateMixin {
 
 
   List<Product> productList = [
-    Product('images/coffee_01.png', "Латте", 100, 20),
-    Product('images/coffee_02.png', "Эспрессо", 200, 30),
-    Product('images/coffee_03.png', "Латте-макиато", 300, 40),
+    // Product('images/coffee_01.png', "Латте", 100, 20),
+    // Product('images/coffee_02.png', "Эспрессо", 200, 30),
+    // Product('images/coffee_03.png', "Латте-макиато", 300, 40),
+    Product('images/Unknown 6.png', "Раф", 300, 40),
+    Product('images/Unknown 5.png', "Мокко", 300, 40),
+    Product('images/Unknown 4.png', "Латте", 300, 40),
+    Product('images/Unknown-8 1.png', "Экпрессо", 300, 40),
+    Product('images/Unknown 7.png', "Латте-макиато", 300, 40),
   ];
   Widget build(BuildContext context) {
-   cot = cot+1;
+   cot = cot;
 
     TabController _tabController = TabController(length: 2, vsync: this);
     final mediaQuery = MediaQuery.of(context).size;
