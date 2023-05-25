@@ -200,14 +200,6 @@ class _Home_pageState extends State<Home_page> with TickerProviderStateMixin {
   final fb = FirebaseDatabase.instance.ref();
 
   Widget _buildListItem(BuildContext context, int index) {
-    final g = FutureBuilder(
-        future: gf(index),
-        builder: (context, snapshot) {
-          return snapshot.data!['imagePate'];
-        });
-    // final g = gf(1);
-    // print(g);
-
     Product product = productList[index];
     return SizedBox(
       width: 200,
