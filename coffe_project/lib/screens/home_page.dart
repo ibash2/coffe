@@ -235,14 +235,13 @@ class _Home_pageState extends State<Home_page> with TickerProviderStateMixin {
                     future: gf(index),
                     builder: (context, snapshot) {
                       if (snapshot.hasData) {
-
                       return Image.asset(
                         snapshot.data!['imagePate'],
                         // product.imagePate,
                         fit: BoxFit.cover,
                         height: 250,
                       );}
-                       return CircularProgressIndicator();
+                       return const CircularProgressIndicator();
                     }
                     ),
                 Text(
