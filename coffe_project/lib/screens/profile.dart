@@ -17,7 +17,7 @@ class MyProfile extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     var user = FirebaseAuth.instance.currentUser;
-    print(user?.email);
+    
     return Container(
       decoration: BoxDecoration(
         image: DecorationImage(
@@ -214,10 +214,8 @@ class MyProfile extends StatelessWidget {
                   splashColor: Colors.transparent,
                   highlightColor: Colors.transparent,
                   onPressed: (){
-                  Navigator.push(
-                context,
-                MaterialPageRoute(
-                    builder: (context) => MyOrders()));
+                    FirebaseAuth.instance.signOut();
+                  Navigator.push(context,MaterialPageRoute(builder: (context) => Home_page()));
                 },
               ),
             ),

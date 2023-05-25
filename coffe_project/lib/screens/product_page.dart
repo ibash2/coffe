@@ -3,6 +3,8 @@ import 'package:coffe_project/Widget/utils.dart';
 import 'package:coffe_project/screens/profile.dart';
 import 'package:coffe_project/screens/select_dop.dart';
 import 'package:coffe_project/screens/sigin_page.dart';
+import 'package:firebase_database/firebase_database.dart';
+
 import 'package:flutter/material.dart';
 import '../Widget/product.dart';
 import '../Widget/product.dart';
@@ -22,12 +24,20 @@ class Product_information extends StatefulWidget {
 class _Product_informationState extends State<Product_information> {
   int cout = 0;
 
-  void counter(){
-    cout += 1; 
+  void counter() {
+    cout += 1;
   }
 
   @override
   Widget build(BuildContext context) {
+    final fb = FirebaseDatabase.instance.ref();
+     json(i) async{
+      var snapshot = await fb.child('post/$i').get();
+      return snapshot;
+    }
+    
+    
+    
     final mediaQuery = MediaQuery.of(context).size;
     return Container(
       height: double.maxFinite,
@@ -51,9 +61,10 @@ class _Product_informationState extends State<Product_information> {
           ),
           leading: MaterialButton(
             splashColor: Colors.transparent,
-                  highlightColor: Colors.transparent,
+            highlightColor: Colors.transparent,
             onPressed: () {
-              Navigator.push(context, MaterialPageRoute(builder:(context) => MyProfile()));
+              print(widget.product);
+              Navigator.pop(context);
               // showModalBottomSheet(
               //     backgroundColor: Color(0xffffffff),
               //     isScrollControlled: true,
@@ -71,14 +82,17 @@ class _Product_informationState extends State<Product_information> {
               //     },
               //   );
             },
-            child: Image.asset('images/profil.png', height: 18),
+            child: Icon(Icons.arrow_back),
           ),
           actions: [
             MaterialButton(
               splashColor: Colors.transparent,
-                  highlightColor: Colors.transparent,
+              highlightColor: Colors.transparent,
               minWidth: 20,
-              onPressed: () { Navigator.push(context, MaterialPageRoute(builder:(context) => MyBasket() ));},
+              onPressed: () {
+                Navigator.push(context,
+                    MaterialPageRoute(builder: (context) => MyBasket()));
+              },
               child: Image.asset('images/corz.png', height: 21),
             ),
           ],
@@ -91,7 +105,7 @@ class _Product_informationState extends State<Product_information> {
                 Center(),
                 Container(
                   child: Image.asset(
-                    widget.product.imagePate,
+                    widget.product.title,
                     height: 0.33 * mediaQuery.height,
                   ),
                 ),
@@ -127,16 +141,22 @@ class _Product_informationState extends State<Product_information> {
                   Padding(
                     padding: const EdgeInsets.only(left: 20, top: 30),
                     child: MaterialButton(
-                      onPressed: (){
-                        Navigator.push(context,MaterialPageRoute(builder:(context)=> Select_dop(prod: widget.product.title, cen: widget.product.cost,)));
-                      },
-                      splashColor: Colors.transparent,
-                      highlightColor: Colors.transparent,
-                      child: Text('Ингредиенты',
-                        style: SafeGoogleFont('Sarala',
-                            fontSize: 24,
-                            fontWeight: FontWeight.w700,
-                            color: Colors.white))),
+                        onPressed: () {
+                          Navigator.push(
+                              context,
+                              MaterialPageRoute(
+                                  builder: (context) => Select_dop(
+                                        prod: widget.product.title,
+                                        cen: widget.product.cost,
+                                      )));
+                        },
+                        splashColor: Colors.transparent,
+                        highlightColor: Colors.transparent,
+                        child: Text('Ингредиенты',
+                            style: SafeGoogleFont('Sarala',
+                                fontSize: 24,
+                                fontWeight: FontWeight.w700,
+                                color: Colors.white))),
                   ),
                   Container(
                     width: mediaQuery.width,
@@ -156,15 +176,12 @@ class _Product_informationState extends State<Product_information> {
                                     fontSize: 24,
                                     fontWeight: FontWeight.w700,
                                     color: Color.fromRGBO(69, 69, 69, 1))),
-                            
                             Row(
                               children: [
                                 MaterialButton(
                                   onPressed: () {
-                                    setState(() {
-                                      
-                                    });
-                                    cout -=1;
+                                    setState(() {});
+                                    cout -= 1;
                                   },
                                   splashColor: Colors.transparent,
                                   highlightColor: Colors.transparent,
@@ -173,28 +190,26 @@ class _Product_informationState extends State<Product_information> {
                                     height: 36,
                                   ),
                                 ),
-                             
-                            Text(
-                              '$cout',
-                              style: SafeGoogleFont('Sarala',
-                                  fontSize: 24,
-                                  fontWeight: FontWeight.w400,
-                                  color: Color.fromRGBO(69, 69, 69, 1)),
-                            ),
-                            MaterialButton(
-                              onPressed: () {
-                                setState(() {
-                                  
-                                });
-                                counter();
-                              },
-                              splashColor: Colors.transparent,
-                              highlightColor: Colors.transparent,
-                              child: Image.asset(
-                                'images/Group 6.png',
-                                height: 36,
-                              ),
-                            ), ],
+                                Text(
+                                  '$cout',
+                                  style: SafeGoogleFont('Sarala',
+                                      fontSize: 24,
+                                      fontWeight: FontWeight.w400,
+                                      color: Color.fromRGBO(69, 69, 69, 1)),
+                                ),
+                                MaterialButton(
+                                  onPressed: () {
+                                    setState(() {});
+                                    counter();
+                                  },
+                                  splashColor: Colors.transparent,
+                                  highlightColor: Colors.transparent,
+                                  child: Image.asset(
+                                    'images/Group 6.png',
+                                    height: 36,
+                                  ),
+                                ),
+                              ],
                             ),
                           ],
                         ),
@@ -210,23 +225,33 @@ class _Product_informationState extends State<Product_information> {
                         color: Color.fromRGBO(237, 237, 237, 1),
                       ),
                       Padding(
-                        padding: const EdgeInsets.only(top: 15 ,left: 1),
-                        child: Row(children: [
-                          MaterialButton(splashColor: Colors.transparent,
-                                  highlightColor: Colors.transparent,
-                            onPressed: (){},
-                          child: Image.asset('images/Frame 8.png',height: 60,),
-                          ),
-                        SizedBox(width: 58,),
-                        Padding(
-                          padding: const EdgeInsets.only(bottom: 8),
-                          child: Text('${widget.product.cost*cout}.00р',
-                          style: SafeGoogleFont('Sarala',
+                        padding: const EdgeInsets.only(top: 15, left: 1),
+                        child: Row(
+                          children: [
+                            MaterialButton(
+                              // splashColor: Colors.transparent,
+                              // highlightColor: Colors.transparent,
+                              onPressed: () {
+                             
+                              },
+                              child: Image.asset(
+                                'images/Frame 8.png',
+                                height: 60,
+                              ),
+                            ),
+                            SizedBox(
+                              width: 58,
+                            ),
+                            Padding(
+                              padding: const EdgeInsets.only(bottom: 8),
+                              child: Text('${widget.product.cost * cout}.00р',
+                                  style: SafeGoogleFont('Sarala',
                                       fontSize: 24,
                                       fontWeight: FontWeight.w400,
                                       color: Color.fromRGBO(69, 69, 69, 1))),
-                        )
-                        ],),
+                            )
+                          ],
+                        ),
                       )
                     ]),
                   )

@@ -45,23 +45,10 @@ class _Select_dopState extends State<Select_dop> {
                 fontSize: 22, fontWeight: FontWeight.w700),
           ),
           leading: MaterialButton(
-            onPressed: () {showModalBottomSheet(
-                  backgroundColor: Color(0xffffffff),
-                  isScrollControlled: true,
-                  shape: const RoundedRectangleBorder(
-                      borderRadius: BorderRadius.only(
-                    topRight: Radius.circular(16),
-                    topLeft: Radius.circular(16),
-                  )),
-                  context: context,
-                  builder: (BuildContext context) {
-                    return FractionallySizedBox(
-                      heightFactor: 550 / mediaQuery.height,
-                      child: signin_menu(),
-                    );
-                  },
-                );},
-            child: Image.asset('images/profil.png', height: 18),
+            onPressed: () {
+              Navigator.pop(context);
+            },
+            child: Icon(Icons.arrow_back),
           ),
           actions: [
             MaterialButton(
