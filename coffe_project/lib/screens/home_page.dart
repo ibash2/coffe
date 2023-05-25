@@ -57,6 +57,7 @@ class _Home_pageState extends State<Home_page> with TickerProviderStateMixin {
 
   Widget build(BuildContext context) {
     cot = cot;
+
     TabController _tabController = TabController(length: 2, vsync: this);
     final mediaQuery = MediaQuery.of(context).size;
     return Container(
@@ -199,6 +200,11 @@ class _Home_pageState extends State<Home_page> with TickerProviderStateMixin {
   final fb = FirebaseDatabase.instance.ref();
 
   Widget _buildListItem(BuildContext context, int index) {
+    final g = FutureBuilder(
+        future: gf(index),
+        builder: (context, snapshot) {
+          return snapshot.data!['imagePate'];
+        });
     // final g = gf(1);
     // print(g);
 
@@ -228,13 +234,17 @@ class _Home_pageState extends State<Home_page> with TickerProviderStateMixin {
                 FutureBuilder(
                     future: gf(index),
                     builder: (context, snapshot) {
+                      if (snapshot.hasData) {
+
                       return Image.asset(
                         snapshot.data!['imagePate'],
                         // product.imagePate,
                         fit: BoxFit.cover,
                         height: 250,
-                      );
-                    }),
+                      );}
+                       return CircularProgressIndicator();
+                    }
+                    ),
                 Text(
                   product.title,
                   style: SafeGoogleFont('Sarala',
