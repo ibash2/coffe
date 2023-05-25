@@ -58,6 +58,7 @@ class DefaultFirebaseOptions {
     appId: '1:495417203478:android:45a158e54d3be28a350e37',
     messagingSenderId: '495417203478',
     projectId: 'coffe-db-auth',
+    databaseURL: 'https://coffe-db-auth-default-rtdb.firebaseio.com',
     storageBucket: 'coffe-db-auth.appspot.com',
   );
 

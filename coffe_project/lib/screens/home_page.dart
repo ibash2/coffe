@@ -39,9 +39,9 @@ class _Home_pageState extends State<Home_page> with TickerProviderStateMixin {
   var h;
 
   List<Product> productList = [
-    // Product('images/coffee_01.png', "Латте", 100, 20),
-    // Product('images/coffee_02.png', "Эспрессо", 200, 30),
-    // Product('images/coffee_03.png', "Латте-макиато", 300, 40),
+    Product('images/coffee_01.png', "Латте", 100, 20),
+    Product('images/coffee_02.png', "Эспрессо", 200, 30),
+    Product('images/coffee_03.png', "Латте-макиато", 300, 40),
     Product('images/Unknown 6.png', "Раф", 300, 40),
     Product('images/Unknown 5.png', "Мокко", 300, 40),
     Product('images/Unknown 4.png', "Латте", 300, 40),
@@ -49,10 +49,10 @@ class _Home_pageState extends State<Home_page> with TickerProviderStateMixin {
     Product('images/Unknown 7.png', "Латте-макиато", 300, 40),
   ];
 
-  Future<Map> gf(i) async {
-    final fb = FirebaseDatabase.instance.ref();
+  Future gf(i) async {
+    final fb = await  FirebaseDatabase.instance.ref();
     final snapshot = await fb.child('post/$i').get();
-    return snapshot.value as Map;
+    return snapshot.value ;
   }
 
   Widget build(BuildContext context) {
